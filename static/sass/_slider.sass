@@ -1,0 +1,98 @@
+//our help
+.our-help
+  position: relative
+  margin-bottom: 140px
+  h3
+    text-align: center
+    margin-bottom: 50px
+.our-help-inner
+  display: grid
+  grid-template-columns: 50% 40%
+  grid-gap: 10%
+  margin-bottom: 70px
+  &-full-review
+    max-height: 0
+    visibility: hidden
+    border-bottom: 1px solid $color-pimary
+    margin-bottom: 10px
+    padding-bottom: 10px
+    transition: visibility .1s linear, max-height .2s linear
+    &.full-review-active
+      max-height: 300px
+      visibility: visible
+
+      transition: max-height .2s linear, visibility .1s linear .1s
+
+
+.our-help-media
+  display: inline-block
+  border-radius: 10px
+  box-shadow: 0 0 29px 0 rgba(60, 66, 91, 0.39)
+  height: 435px
+  //background-color: rgb(161, 161, 161)
+.our-help-info
+  p
+    font-family: 'MuseoSansCyrl-700',sans-serif
+    font-size: 16px
+    color: $color-text-d-grey
+  a
+    display: block
+    &:last-child
+     padding: 25px 0
+.our-help-info-header
+  border-bottom: 1px solid #bebebe
+
+  h5
+    font-family: 'MuseoSansCyrl-700',sans-serif
+    font-size: 16px
+    color: $color-text-d-grey
+    position: relative
+    &:after
+      content: ''
+      position: absolute
+      width: 380px
+      height: 2px
+      background: #ffd05d
+      bottom: 4px
+      left: 0
+
+  p
+    font-family: 'MuseoSansCyrl-300',sans-serif
+    font-size: 14px
+    color: $color-text-d-grey
+
+
+.our-help-media-slide-item
+  cursor: pointer
+
+  h5
+    margin: 20px 0 25px 0
+  p
+    font-family: 'MuseoSansCyrl-300', sans-serif
+    color: $color-text-d-grey
+    line-height: 24px
+    font-size: 14px
+    width: 260px
+.our-help-media-slide-image
+  img
+    border-radius: 10px
+
+.controls
+  position: relative
+.prev
+  position: absolute
+  cursor: pointer
+  bottom: 100px
+  left: -75px
+  &:focus
+    outline-width: 0
+.next
+  position: absolute
+  cursor: pointer
+  bottom: 100px
+  right: -75px
+  &:focus
+    outline-width: 0
+@media (max-width: 1200px)
+  .controls
+    display: none

@@ -1,0 +1,31 @@
+.about
+  margin-bottom: 135px
+  h3
+    line-height: 50px
+    max-width: 540px
+    margin: 0 auto 70px
+    text-align: center
+  &-wrapper
+    background: url(../img/bg2.png) no-repeat 70% 0
+    height: 699px
+
+
+  &-inner
+    height: 100%
+    display: flex
+    align-items: center
+    p
+      font: 16px $f-GR
+      color: $color-text-d-grey
+      letter-spacing: 0
+      max-width: 450px
+      line-height: 26px
+
+      span
+        display: block
+        margin-bottom: 35px
+
+@media (max-width: 425px)
+	.about
+		background: none
+		height: fit-content

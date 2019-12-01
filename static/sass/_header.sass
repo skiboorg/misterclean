@@ -1,0 +1,214 @@
+.header
+  &.header-no-bg
+    padding: 20px
+    border-bottom: 1px solid $color-border
+    margin-bottom: 50px
+
+  &.header-with-bg
+    background: url(../img/bg.png) no-repeat 50% 50%
+    height: 760px
+    padding-top: 10px
+    margin-bottom: 140px
+  &-nav-wrapper
+    display: flex
+    align-items: center
+    justify-content: space-between
+
+  &-logo
+
+  &-nav
+    min-width: 460px
+    &__nav-wrapper
+      display: flex
+      justify-content: space-between
+      li
+        a
+          font: 16px $f-M300
+          color: $color-text-d-grey
+          &.active
+            font: 16px $f-M700
+            color: $color-text-d-grey
+    & .mobile-active
+      transform: translateX(0px)
+      transition: all .3s
+      li
+        margin-bottom: 20px
+        &:last-child
+          margin-bottom: 0
+        a
+          font-size: 16px
+
+
+  &-phone
+    p
+      position: relative
+      font: 18px $f-M700
+      color: $color-text-d-grey
+      text-align: center
+      margin-bottom: 20px
+      &:before
+        position: absolute
+        content: url(../img/phone-ico.png)
+        left: 0
+        top: 2px
+        height: 18px
+    a
+      font: 15px $f-M500
+      padding: 15px 40px
+
+
+
+@media (max-width: 1000px)
+  .header
+    &-logo
+      p
+        display: none
+    &-phone
+      transform: none
+      background: none
+      p
+        font-family: $f-GM
+        font-size: 15px
+        color: $color-text-d-grey
+        transform: none
+        a
+          margin-left: 5px
+          font-family: $f-GR
+          font-size: 13px
+          color: $color-l-blue
+          transform: none
+          border-bottom: 1px solid $color-border
+          cursor: pointer
+
+@media (max-width: 768px)
+  .mobile-toggle
+    display: block
+
+  .header
+    position: relative
+    &.header-with-bg
+      padding: 0
+    &-nav
+      min-width: 0
+      position: absolute
+      left: 0
+      right: 0
+      top: 70px
+      &__nav-wrapper
+        border-top: 1px solid $color-border
+        background: #ffffff
+        padding: 20px
+        flex-direction: column
+        transform: translateX(-10000px)
+        transition: all .3s
+
+
+
+
+
+//header inner
+.header-inner
+
+  h1
+    font: 48px $f-BerDb
+    text-align: center
+    color: $color-text-d-grey
+    margin: 0 auto 40px
+    max-width: 870px
+    line-height: 50px
+    span
+      font-family: $f-GL
+
+  p
+    position: relative
+    color: $color-text-m-grey
+    font: 18px $f-M100
+    line-height: 30px
+    letter-spacing: 0.27px
+    max-width: 520px
+    margin: 0 auto
+    text-align: center
+
+
+  a
+   padding: 20px 55px
+  .shadow-box
+    max-width: 800px
+    margin: 0 auto
+    margin-top: 50px
+
+  .shadow-box-inner
+    padding: 35px 60px
+
+    p
+      font: 24px $f-M300
+      color: $color-text-d-grey
+      line-height: 30px
+      max-width: 580px
+      text-align: start
+      margin: 0 0 30px 0
+
+      span
+        color: $color-pimary
+        font-family: $f-M700
+
+
+@media (max-width: 425px)
+  .header
+    &.header-no-bg
+      padding: 0
+    &.header-with-bg
+
+      height: 550px
+      padding-top: 0
+      margin-bottom: 20px
+
+  .header-inner
+    h1
+      font-size: 20px
+      line-height: 25px
+    a
+      margin-bottom: 100px
+      padding: 20px 40px
+      margin-left: 0
+    p
+      margin-left: 0
+      font-size: 16px
+      &:before
+        content: none
+
+.mobile-toggle
+  display: none
+  width: 35px
+  position: relative
+  height: 3px
+  background: $color-text-d-grey
+  &::before
+    position: absolute
+    content: ''
+    width: 30px
+    height: 3px
+    background: $color-text-d-grey
+    top: -7px
+    right: 0
+    transition: transform 0.2s ease-in, top 0.2s linear 0.2s
+  &::after
+    position: absolute
+    background: $color-text-d-grey
+    content: ''
+    width: 35px
+    height: 3px
+    top: 7px
+    transition: transform 0.2s ease-in, top 0.2s linear 0.2s
+
+.mobile-toggle.mobile-toggle-active
+  background-color: transparent
+  &::before
+    width: 35px
+    transform: rotate(45deg)
+    top: 0
+    transition: top 0.2s linear, transform 0.2s ease-in 0.2s
+  &::after
+    transform: rotate(-45deg)
+    top: 0
+    transition: top 0.2s linear, transform 0.2s ease-in 0.2s

@@ -1,0 +1,261 @@
+$color-pimary: #18b9c2
+$color-d-blue: #456dab
+$color-m-blue: #3973c5
+$color-l-blue: #5d96e5
+
+$color-text-d-grey: #1f1f1f
+$color-text-m-grey: #292929
+
+$color-border: #cecece
+
+$f-BerBl: 'BerlingskeSerif-Blk',sans-serif
+$f-BerDb: 'BerlingskeSerif-DBdItalic',sans-serif
+$f-BerMd: 'BerlingskeSerif-MdItalic',sans-serif
+
+$f-M100: 'MuseoSansCyrl-100',sans-serif
+$f-M300: 'MuseoSansCyrl-300',sans-serif
+$f-M500: 'MuseoSansCyrl-500',sans-serif
+$f-M700: 'MuseoSansCyrl-700',sans-serif
+
+$f-GR: 'Gotham Regular',sans-serif
+$f-GB: 'Gotham Bold',sans-serif
+$f-GL: 'Gotham Light',sans-serif
+$f-GM: 'Gotham Medium',sans-serif
+
+
+
+h1
+  color: $color-text-d-grey
+  font-family: $f-GR
+  font-size: 45px
+  margin-bottom: 50px
+  line-height: 45px
+
+@media (max-width: 425px)
+  h1
+    font-size: 30px
+    margin-bottom: 20px
+h3
+  color: $color-text-d-grey
+  font-family: $f-BerMd
+  font-size: 48px
+
+button[type='button']
+  display: none
+
+input,select
+
+  background: #ffffff
+  padding: 10px
+  font-family: $f-M100
+  font-size: 16px
+  border: 1px solid $color-pimary
+  border-radius: 30px
+  color: $color-text-m-grey
+  width: 100%
+
+  box-sizing: border-box
+  &::placeholder
+    color: #83868f
+    font-family: $f-GR
+    font-size: 16px
+  &:focus
+    outline: 0
+
+.form
+  &-wrapper
+    display: grid
+    grid-template-columns: repeat(3,1fr)
+    grid-gap: 30px
+    margin-bottom: 40px
+  &-result
+    align-self: flex-end
+  &-group
+    label
+      font: 14px $f-M100
+
+  p
+    font: 16px $f-M500 !important
+
+
+.container
+  max-width: 1140px
+  padding: 0 15px
+  margin: 0 auto
+
+.container-sm
+  max-width: 945px
+  padding: 0 15px
+  margin: 0 auto
+.btn, button
+  border: none
+  display: inline-block
+  box-sizing: border-box
+  text-decoration: none
+  cursor: pointer
+  text-align: center
+  padding: 10px
+  text-shadow: 0 1px 0 #174da4
+  font: 15px $f-M500
+  color: #ffffff
+  letter-spacing: 0.32px
+  box-shadow: inset 0 0 13px rgba(255, 255, 255, 0.2)
+  border-radius: 30px
+  background-image: linear-gradient(to top, #189ca3 0%, #0ed6e1 100%)
+
+  &:focus
+    outline-width: 0
+  &:hover
+    //box-shadow: inset 0 0 73px rgba(255, 187, 0, 0.18), inset 0 0 18px rgba(255, 255, 255, 0.75)
+    background-image: linear-gradient(to bottom, #189ca3 0%, #0ed6e1 100%)
+
+.section-header
+  text-align: center
+  h3
+    color: $color-text-d-grey
+    font-family: $f-GM
+    font-size: 48px
+  p
+    color: $color-text-d-grey
+    font-family: $f-GR
+    font-size: 24px
+
+@media (max-width: 425px)
+  .section-header
+    h3
+      font-size: 20px
+    p
+      font-size: 16px
+
+.shadow-box
+  box-sizing: border-box
+  border-radius: 10px
+  background-color: #fff
+  box-shadow: 0 0 51px 0 rgba(0, 0, 0, 0.1)
+  padding: 9px
+  &-inner
+    box-sizing: border-box
+    border-radius: 10px
+    min-height: 100%
+    height: fit-content
+    border: 1px dashed $color-pimary
+
+
+.breadcrumbs
+  font-family: $f-GL
+  font-size: 16px
+  margin-bottom: 50px
+  ul
+    display: flex
+    flex-wrap: wrap
+    li
+      &:after
+        content: '/'
+        margin: 0 10px
+      &:last-child:after
+        content: ''
+      a
+        color: $color_l_blue
+
+.success-message
+  display: none
+  p
+    color: $color-text-d-grey
+    font-family: $f-GR
+    font-size: 24px
+
+
+.masked-phone
+  color: #83868f
+  font-family: $f-GR
+  font-size: 16px
+
+.error-field
+  border: 1px solid $color-pimary
+
+
+.modal
+  position: relative
+  z-index: 999
+  &-form
+    position: relative
+  &-close
+    position: absolute
+    right: 15px
+    top: 0
+    font-size: 40px
+    cursor: pointer
+    color: $color-text-d-grey
+    opacity: .9
+    &:hover
+      opacity: 1
+
+  &-content
+    position: fixed
+    display: flex
+    overflow: auto
+    //padding-bottom: 15px
+    //padding-top: 15px
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    top: 0
+    left: 10000px
+    width: 100%
+    height: 100%
+    background: rgba(21, 21, 21, 0.41)
+    transition: left 0.3s ease-out
+    & .shadow-box
+      width: 320px
+    & .shadow-box-inner
+      display: flex
+      flex-direction: column
+      align-items: center
+      padding: 30px
+      justify-content: center
+    h5
+      font-family: $f-GB
+      font-size: 21px
+      color: $color-text-d-grey
+      text-align: center
+    span
+      font-family: $f-GR
+      font-size: 16px
+      color: $color-text-m-grey
+      margin-bottom: 40px
+    & .btn
+      margin: 30px 0
+      width: 100%
+      padding: 20px 10px
+    p
+      font-family: $f-M300
+      font-size: 12px
+      color: $color-text-m-grey
+      max-width: 200px
+      text-align: center
+      a
+        color: $color-l-blue
+
+  &-content.modal-active
+    left: 0
+    transition: left 0.3s ease-in
+
+@media (max-width: 425px)
+  .hidden-mobile
+    display: none !important
+  section
+    margin-bottom: 40px !important
+
+.about-us-inner
+  p
+    margin-bottom: 10px
+  ol
+    li
+      font-family: $f-GR
+      font-size: 16px
+      color: $color-text-m-grey
+  h2
+    font-family: $f-GB
+    font-size: 20px
+    margin-bottom: 10px
+    color: $color-text-m-grey

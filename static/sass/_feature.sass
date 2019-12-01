@@ -1,0 +1,76 @@
+.feature
+  margin-bottom: 70px
+  &-relative
+    position: relative
+  &-inner
+    position: absolute
+    width: 500px
+    height: 500px
+    right: 0
+    top: 170px
+
+  &-wrapper
+    background: url(../img/bg1.png)
+    height: 820px
+
+  &-item.shadow-box
+    max-width: 254px
+    position: absolute
+    box-shadow: 0 0 46px 0 rgba(34, 36, 37, 0.12)
+
+
+    &:before
+      position: absolute
+      content: attr(data-num)
+      top: -60px
+      letter-spacing: 0.16px
+      font: 72px $f-M700
+      color: $color-pimary
+      z-index: -1
+
+    .shadow-box-inner
+      padding: 30px
+      p
+        font: 16px $f-M300
+        color: $color-text-d-grey
+        line-height: 24px
+        letter-spacing: 0.16px
+        span
+          font: 16px $f-M700
+  &-item.item2
+    right: 5px
+    top: 45px
+    &:before
+      left: 30px
+  &-item.item3
+    top: 230px
+  &-item.item4
+    right: 5px
+    top: 275px
+    &:before
+      left: 30px
+
+  h3
+    line-height: 50px
+    max-width: 770px
+    margin: 0 auto 70px
+    text-align: center
+
+
+
+@media (max-width: 425px)
+  .feature
+    margin-bottom: 40px
+
+    h3
+      font-size: 20px
+      line-height: 25px
+      margin-bottom: 20px
+    &-grid
+      display: flex
+      flex-wrap: wrap
+      .box-1
+        margin-top: 0
+        margin-bottom: 20px
+      .box-2
+        height: 290px

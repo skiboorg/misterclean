@@ -1,0 +1,258 @@
+.quiz
+  height: 1240px
+  &-inner
+    max-width: 950px
+    height: 560px
+    margin: 0 auto
+    &-tabs
+      position: relative
+      display: flex
+      justify-content: space-between
+      &::before
+        content: ''
+        width: 100%
+        height: 1px
+        position: absolute
+        top: 50%
+        border-top: 1px dashed $color-border
+.tab
+  z-index: 1
+.tab-title
+  display: inline-block
+
+.tab input[type="radio"]
+  display: none
+
+.tab-title
+  display: inline-block
+  width: 50px
+  height: 50px
+  border-radius: 50%
+  padding: 4px
+  background: #ffffff
+  box-sizing: border-box
+  transition: background-color 0.3s ease-in
+  cursor: pointer
+  span
+    background: #ffffff
+    border: 1px solid #bebebe
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    color: #bebebe
+    display: flex
+    align-items: center
+    justify-content: center
+    font-family: 'MuseoSansCyrl-500', sans-serif
+    font-size: 16px
+
+.tab-content
+  background: url(../img/quiz-bg.png) no-repeat
+  height: 459px
+  position: absolute
+  left: 0
+  width: calc(100% - 2*100px)
+  padding: 100px
+  background-size: contain
+  display: none
+  font-family: 'MuseoSansCyrl-500', sans-serif
+  font-size: 16px
+  color: $color-text-d-grey
+  p
+    margin-bottom: 20px
+  input
+    padding: 20px
+    width: 50%
+  button
+    padding: 20px 60px
+    display: block
+
+  &-group
+    margin: 0 0 10px 35px
+
+    &__radio-label
+      position: relative
+      cursor: pointer
+      &::before
+        position: absolute
+        content: ''
+        height: 20px
+        width: 20px
+        border-radius: 50%
+        border: 1px solid $color-border
+        bottom: -2px
+        left: -35px
+    &__radio-input:checked
+      + .tab-content-group__radio-label::after
+        position: absolute
+        content: ''
+        height: 14px
+        width: 14px
+        border-radius: 50%
+        background: $color-l-blue
+        bottom: 1px
+        left: -32px
+
+.tab :checked + .tab-title
+  border: 1px solid $color_red
+  transition: background-color 0.3s ease-in
+  span
+    background: $color_red
+    border: none
+    color: #ffffff
+
+.tab :checked ~ .tab-content
+  display: block
+
+.quiz-bottom
+  max-width: 1080px
+  padding: 10px
+  margin: 0 auto
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-between
+  & .shadow-box
+    flex-basis: 35%
+  & .shadow-box-inner
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding: 30px
+    justify-content: center
+    h5
+      font-family: $f-GB
+      font-size: 21px
+      color: $color-text-d-grey
+      text-align: center
+    span
+      font-family: $f-GR
+      font-size: 16px
+      color: $color-text-m-grey
+      margin-bottom: 40px
+    & .btn
+      margin: 30px 0
+      width: 100%
+      padding: 20px 10px
+    p
+      font-family: $f-M300
+      font-size: 12px
+      color: $color-text-m-grey
+      max-width: 200px
+      text-align: center
+      a
+        color: $color-l-blue
+
+  &-info
+    flex-basis: 55%
+    h3
+      position: relative
+      margin-left: 60px
+      font-family: $f-GM
+      font-size: 48px
+      color: $color-text-d-grey
+      margin-bottom: 75px
+      letter-spacing: -1.9px
+
+      &::before
+        position: absolute
+        content: 'K'
+        font-family: $f-GR
+        font-size: 212px
+        color: #f7f7f7
+        line-height: 0
+        left: -85px
+        top: 17px
+        z-index: -1
+    p
+      position: relative
+      margin-left: 130px
+      font-family: $f-GL
+      font-size: 16px
+      color: $color-text-m-grey
+      line-height: 24px
+      &::before
+        position: absolute
+        content: ''
+        width: 15px
+        height: 4px
+        background: $color-pimary
+        left: -30px
+        top: 10px
+        border-radius: 2px
+
+
+@media (max-width: 425px)
+  .last-question
+    input, button
+      width: 100%
+  .quiz
+    padding: 0 10px
+    &-inner
+      margin-top: 10px
+      height: 310px
+      &-tabs
+        justify-content: space-evenly
+
+  .tab-title
+    display: inline-block
+    width: 40px
+    height: 40px
+    border-radius: 50%
+    padding: 4px
+    background: #ffffff
+    box-sizing: border-box
+    transition: background-color 0.3s ease-in
+    cursor: pointer
+    span
+      background: #ffffff
+      border: 1px solid #bebebe
+      width: 30px
+      height: 30px
+      border-radius: 50%
+      color: #bebebe
+      display: flex
+      align-items: center
+      justify-content: center
+      font-family: 'MuseoSansCyrl-500', sans-serif
+      font-size: 16px
+  .tab-content
+    background: none
+    padding: 30px
+    left: 0
+    right: 0
+    width: auto
+    margin: auto
+    height: auto
+
+  .quiz-bottom
+    &-info
+      flex-basis: 100%
+      h3
+        position: relative
+        margin-left: 0
+        font-family: $f-GM
+        font-size: 20px
+        color: $color-text-d-grey
+        margin-bottom: 20px
+        letter-spacing: -1.9px
+        &::before
+          content: none
+
+      p
+        position: relative
+        margin-left: 30px
+        font-family: $f-GL
+        font-size: 13px
+        color: $color-text-m-grey
+        line-height: 24px
+        &::before
+          position: absolute
+          content: ''
+          width: 15px
+          height: 4px
+          background: $color-pimary
+          left: -30px
+          top: 10px
+          border-radius: 2px
+    & .shadow-box
+      flex-basis: 100%
