@@ -200,13 +200,15 @@
                 </div>
                 <div class="our-help-info">
                     <div class="our-help-info-header mb30">
-                        <h5 id="review_title" class="mb20">Родила на третьем курсе, а доучиваться еще два</h5>
-                        <p id="review_description"  class="mb20">Изучили положение и помогли сформировать пакет работ по подходящему бюджету</p>
+                       <img id="writtenbyavatar" src="http://placehold.it/115">
+                        <div class="our-help-info-writtenby">
+                            <p>Анастасия Волкова </p>
+                            <a href="#">vk.com/id15623525</a>
+                        </div>
                     </div>
-                    <p id="review_shortReview" class="mb30">
-                        На третьем курсе Юлия стала мамой, возможности писать рефераты и курсовые работы не стало. Брать академический отпуск — финансово нецелесообразно. Тогда она решила обратиться к нам.
-                    </p>
-                   
+                       <p id="review_shortReview" class="mb30">
+                        fdgdfgdfgfdgfdg
+                   </p>
                 </div>
             </div><!-- //our-help-inner-->
             <div class="our-help-media-slider" id="our-help-media-slider">
@@ -279,10 +281,14 @@
                     <h5 class="form-header">Остались вопросы ?</h5>
                     <span class="form-header-small">Мы моментально перезвоним и ответим на них</span>
 
-                    <input class="input_style-2" type="text" name="name" placeholder="Как к Вам обращаться?">
-                    <input class="input_style-2" type="text" name="name" placeholder="Ваш сотовый номер">
-                    <a   class="btn">Перезвоните мне</a>
-                    <p class="form-small-text">Нажимая на кнопку, в принимаете <a href="#">условия передачи данных</a></p>
+                     <input class="input_style-2" type="text" id="form_name" placeholder="Как к Вам обращаться?">
+                    <input type="tel" id="form_phone"  class="input_style-2 masked-phone" placeholder="Ваш сотовый номер" data-phonemask="+7(___)___-__-__" />
+                    <a   class="btn" onclick="sendForm('form')">Перезвоните мне</a>
+                    <label class="custom-checkbox"><span>Даю согласие на обработку моих персональных данных</span>
+                    <input name="personal" checked required type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <input style="display: none" name="agree" type="checkbox">
 
 
 
@@ -325,7 +331,7 @@
 
             <div class="footer-top-phones text-right">
                 <p>+7 (351) 230 80 40</p>
-                <a href="#" class="btn ">Перезвоните мне</a>
+                <a href="javascript: void(0)" onclick="toggleModal('callback-modal')" class="btn ">Перезвоните мне</a>
             </div>
 
 
@@ -337,8 +343,41 @@
     </div>
 </footer>
 
+<div id="callback_modal" class="modal">
+        <div class="modal-content callback-modal">
+            <div class="modal-form">
+
+                <b class="modal-close" onclick="toggleModal('callback-modal')">&#215;</b>
+               {% csrf_token %}
+                  <div class="shadow-box">
+                <div class="shadow-box-inner">
+                    <h5 class="form-header">Остались вопросы ?</h5>
+                    <span class="form-header-small">Мы моментально перезвоним и ответим на них</span>
+
+                    <input class="input_style-2" type="text" id="modal_name" placeholder="Как к Вам обращаться?">
+                    <input class="input_style-2 masked-phone" type="tel" id="modal_phone" placeholder="Ваш сотовый номер" data-phonemask="+7(___)___-__-__">
+                    <a   class="btn" onclick="sendForm('modal')">Перезвоните мне</a>
+                    <label class="custom-checkbox"><span>Даю согласие на обработку моих персональных данных</span>
+                    <input name="personal" checked required type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
+                <input style="display: none" name="agree" type="checkbox">
 
 
+
+                </div>
+
+            </div>
+                </div>
+
+
+
+            </div>
+
+
+
+    </div><!--callback_order_modal -->
+<script src="js/phone-mask.min.js"></script>
 <script src="js/tiny-slider.js"></script>
 <script>
     let mobile_button = document.getElementsByClassName('mobile-toggle')[0]
@@ -375,15 +414,20 @@
 
 
     }
-    let review_image=document.getElementById('review_image'), review_title=document.getElementById('review_title'),
-        review_description=document.getElementById('review_description'),
-        review_shortReview=document.getElementById('review_shortReview')
+       let review_image=document.getElementById('review_image'), review_title=document.getElementById('review_title'),
+            review_description=document.getElementById('review_description'),
+            review_shortReview=document.getElementById('review_shortReview'),
+            review_fullReview=document.getElementById('review_fullReview'),
+            readfullreview_btn = document.getElementById("readfullreview_btn"),
+            full_review_div=document.getElementsByClassName('our-help-inner-full-review')[0]
     function changeReview(el) {
-        let image = el.dataset.image, title = el.dataset.title, description = el.dataset.description,
-            shortReview = el.dataset.shortReview, fullReview = el.dataset.fullReview
-        review_description = description
-        review_image.style.background = "url('"+image+"') no-repeat"
-        review_title.innerText = title
+
+            review_image.style.background = "url('"+el.dataset.image+"') no-repeat center"
+            review_title.innerText = el.dataset.title
+            review_description.innerText = el.dataset.description
+            review_shortReview.innerText = el.dataset.shortreview
+            review_fullReview.innerHTML = el.dataset.fullreview
+
     }
 
 
@@ -469,7 +513,36 @@
     }
 
 
+function sendForm(type) {
+            document.getElementById(`${type}_name`).classList.remove('error-field')
+            document.getElementById(`${type}_phone`).classList.remove('error-field')
+            console.log('send')
+            let fd = new FormData();
+            fd.append('csrfmiddlewaretoken', csrfmiddlewaretoken)
 
+            fd.append('userName', document.getElementById(`${type}_name`).value)
+            fd.append('userPhone', document.getElementById(`${type}_phone`).value)
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', '/callback/callback/', true);
+            xhr.onload = function () {
+                let result = JSON.parse(this.response)['result']
+                console.log(result)
+                if ( result === 'ok') {
+                    document.getElementById(`${type}_content`).innerHTML='<h5>Спасибо за обращение, Вам перезвонят</h5>'
+
+                }
+                else {
+                    if (result === 'name'){
+                        document.getElementById(`${type}_name`).classList.add('error-field')
+                    }
+
+                    if (result === 'phone'){
+                        document.getElementById(`${type}_phone`).classList.add('error-field')
+                    }
+                }}
+            xhr.send(fd);
+        }
 
 </script>
 </body>

@@ -26,8 +26,8 @@ $f-GM: 'Gotham Medium',sans-serif
 
 h1
   color: $color-text-d-grey
-  font-family: $f-GR
-  font-size: 45px
+  font-family: $f-BerMd
+  font-size: 48px
   margin-bottom: 50px
   line-height: 45px
 
@@ -42,6 +42,13 @@ h3
 
 button[type='button']
   display: none
+
+h5
+  font: 20px $f-M500
+  color: $color-text-d-grey
+
+.text-bold
+  font-family: $f-M500 !important
 
 input,select
 
@@ -87,7 +94,7 @@ input,select
   max-width: 945px
   padding: 0 15px
   margin: 0 auto
-.btn, button
+.btn
   border: none
   display: inline-block
   box-sizing: border-box
@@ -171,7 +178,7 @@ input,select
   font-size: 16px
 
 .error-field
-  border: 1px solid $color-pimary
+  border: 1px solid #ff2f36 !important
 
 
 .modal
@@ -181,8 +188,8 @@ input,select
     position: relative
   &-close
     position: absolute
-    right: 15px
-    top: 0
+    right: 25px
+    top: 25px
     font-size: 40px
     cursor: pointer
     color: $color-text-d-grey
@@ -206,7 +213,7 @@ input,select
     background: rgba(21, 21, 21, 0.41)
     transition: left 0.3s ease-out
     & .shadow-box
-      width: 320px
+      max-width: 420px
     & .shadow-box-inner
       display: flex
       flex-direction: column
@@ -305,3 +312,87 @@ input,select
     font: 16px $f-GR
     line-height: 24px
     margin-bottom: 40px
+
+
+.custom-checkbox
+  padding: 6px 40px
+  font-size: 12px
+  font-family: 'MuseoSansCyrl-300', sans-serif
+  color: #bfc0c5
+  position: relative
+  user-select: none
+
+  input
+    position: absolute
+    opacity: 0
+    cursor: pointer
+    height: 0
+    width: 0
+
+.checkmark
+  position: absolute
+  top: 8px
+  left: 0
+  height: 20px
+  width: 20px
+  border-radius: 5px
+  background-color: #ffffff
+  border: 1px solid #bfc0c5
+  &:after
+    content: ""
+    position: absolute
+    display: none
+
+.custom-checkbox:hover input ~ .checkmark
+  background-color: #ccc
+
+.custom-checkbox input:checked ~ .checkmark
+  background-color: #ffffff
+  border: 1px solid #bebebe
+
+.custom-checkbox input:checked ~ .checkmark:after
+  display: block
+
+.custom-checkbox .checkmark:after
+  left: 8px
+  top: 4px
+  width: 6px
+  height: 10px
+  border: solid $color-pimary
+  border-width: 0 2px 1px 0
+  transform: rotate(45deg)
+
+.features
+  display: grid
+  grid-gap: 35px
+  grid-template-columns: repeat(auto-fit,minmax(250px,1fr))
+  margin-bottom: 120px
+  .feature-item
+    p
+      position: relative
+      font-family: 'MuseoSansCyrl-700', sans-serif
+      font-size: 60px
+      color: $color-pimary
+      margin-bottom: 25px
+      text-align: center
+      &::after
+        content: ''
+        position: absolute
+        width: 90px
+        height: 2px
+        bottom: -5px
+        background: #000
+        left: 0
+        right: 0
+        margin-left: auto
+        margin-right: auto
+    span
+      display: block
+      margin: 0 auto
+      font-family: 'MuseoSansCyrl-300', sans-serif
+      font-size: 14px
+      color: $color-text-d-grey
+      text-align: center
+
+.mb-80
+  margin-bottom: 80px

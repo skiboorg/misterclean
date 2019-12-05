@@ -7,8 +7,8 @@
     margin-bottom: 50px
 .our-help-inner
   display: grid
-  grid-template-columns: 50% 40%
-  grid-gap: 10%
+  grid-template-columns: 2fr 1fr
+  grid-gap: 30px
   margin-bottom: 70px
   &-full-review
     max-height: 0
@@ -28,19 +28,55 @@
   display: inline-block
   border-radius: 10px
   box-shadow: 0 0 29px 0 rgba(60, 66, 91, 0.39)
-  height: 435px
+  height: 390px
   //background-color: rgb(161, 161, 161)
 .our-help-info
-  p
-    font-family: 'MuseoSansCyrl-700',sans-serif
-    font-size: 16px
+  p:last-child
+    position: relative
+    font: 16px $f-GR
     color: $color-text-d-grey
+    &:after
+      position: absolute
+      content: '"'
+      font: 390px $f-BerMd
+      color: rgba(1, 1, 1, 0.1)
+      right: 0
+      top: 120px
+      line-height: 0
   a
     display: block
-    &:last-child
-     padding: 25px 0
+
+.our-help-info-writtenby
+  p
+    position: relative
+    font: 21px $f-GM
+    color: $color-text-d-grey
+    margin-bottom: 35px
+
+    &:after
+      position: absolute
+      content: ''
+      width: 60px
+      height: 4px
+      background: $color-pimary
+      bottom: -15px
+      left: 0
+  a
+    font: 16px $f-GL
+    color: #1fa6eb
+
+
 .our-help-info-header
   border-bottom: 1px solid #bebebe
+  display: flex
+  align-items: center
+  justify-content: space-around
+  padding-bottom: 25px
+  margin-bottom: 35px
+
+
+  img
+    border-radius: 50%
 
   h5
     font-family: 'MuseoSansCyrl-700',sans-serif
@@ -56,10 +92,7 @@
       bottom: 4px
       left: 0
 
-  p
-    font-family: 'MuseoSansCyrl-300',sans-serif
-    font-size: 14px
-    color: $color-text-d-grey
+
 
 
 .our-help-media-slide-item
@@ -83,14 +116,14 @@
   position: absolute
   cursor: pointer
   bottom: 100px
-  left: -75px
+  left: -115px
   &:focus
     outline-width: 0
 .next
   position: absolute
   cursor: pointer
   bottom: 100px
-  right: -75px
+  right: -115px
   &:focus
     outline-width: 0
 @media (max-width: 1200px)

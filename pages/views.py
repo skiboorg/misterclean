@@ -1,9 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-from blog.models import *
+# from blog.models import *
 from .models import *
+from comments.models import Comment
 
 def index(request):
+    homeactive = 'active'
+    allServices = ServiceName.objects.all()
+    servicesAtHome = allServices.filter(isAtHome=True)
+    allComments = Comment.objects.all()
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.indexTitle
@@ -15,27 +20,29 @@ def index(request):
         pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
     return render(request, 'pages/index.html', locals())
 
-def allPosts(request):
-    try:
-        seotag = SeoTag.objects.first()
-        pageTitle = seotag.postsTitle
-        pageDescription = seotag.postsDescription
-        pageKeywords = seotag.postsKeywords
-    except:
-        pageTitle = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
-        pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
-        pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
-    allPost = BlogPost.objects.filter(is_active=True)
-    return render(request, 'pages/posts.html', locals())
-
-def showPost(request,slug):
-    post = get_object_or_404(BlogPost, name_slug=slug)
-    pageTitle = post.page_title
-    pageDescription = post.page_description
-    pageKeywords = post.page_keywords
-    return render(request, 'pages/post.html', locals())
+# def allPosts(request):
+#     try:
+#         seotag = SeoTag.objects.first()
+#         pageTitle = seotag.postsTitle
+#         pageDescription = seotag.postsDescription
+#         pageKeywords = seotag.postsKeywords
+#     except:
+#         pageTitle = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+#         pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+#         pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+#     allPost = BlogPost.objects.filter(is_active=True)
+#     return render(request, 'pages/posts.html', locals())
+#
+# def showPost(request,slug):
+#     post = get_object_or_404(BlogPost, name_slug=slug)
+#     pageTitle = post.page_title
+#     pageDescription = post.page_description
+#     pageKeywords = post.page_keywords
+#     return render(request, 'pages/post.html', locals())
 
 def about(request):
+    aboutactive = 'active'
+    allServices = ServiceName.objects.all()
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.aboutTitle
@@ -48,6 +55,7 @@ def about(request):
     return render(request, 'pages/about.html', locals())
 
 def services(request):
+    servicesactive = 'active'
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.servicesTitle
@@ -60,11 +68,30 @@ def services(request):
     allServices = ServiceName.objects.all()
     return render(request, 'pages/services.html', locals())
 
+
+def contacts(request):
+    contactsactive = 'active'
+
+    try:
+        seotag = SeoTag.objects.first()
+        pageTitle = seotag.contactTitle
+        pageDescription = seotag.contactDescription
+        pageKeywords = seotag.contactKeywords
+    except:
+        pageTitle = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+        pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+        pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+    return render(request, 'pages/contacts.html', locals())
+
+
 def service(request,slug):
+    servicesactive = 'active'
     currentService = get_object_or_404(ServiceName, name_slug=slug)
+    allServices = ServiceName.objects.all()
     pageTitle = currentService.page_title
     pageDescription = currentService.page_description
     pageKeywords = currentService.page_keywords
+    allComments = Comment.objects.filter(service=currentService)
     return render(request, 'pages/service.html', locals())
 
 

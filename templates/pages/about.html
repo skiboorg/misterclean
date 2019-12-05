@@ -1,0 +1,242 @@
+{% extends  'basic.html' %}
+{% load static %}
+
+{% block title %}
+   {{ pageTitle }}
+{% endblock %}
+
+{% block keywords %}
+    {{ pageKeywords }}
+{% endblock %}
+
+{% block description %}
+    {{ pageDescription }}
+{% endblock %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'css/luminous-basic.min.css' %}">
+    {{ block.super }}
+{% endblock %}
+
+
+
+{% block content %}
+    {% include 'header.html' %}
+  <div class="main">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="#">Главная</a></li>
+                <li class="active">Полезные статьи</li>
+            </ul>
+        </div>
+    </div><!--// breadcrumbs-->
+    <section class="about-us">
+        <div class="container about-us-inner">
+            <h1>О нас</h1>
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aperiam, blanditiis deserunt, eaque eos excepturi illo incidunt iste laboriosam neque officia quae quaerat repudiandae sapiente similique, sit ullam vitae!</span><span>Delectus ea modi, omnis perspiciatis quos rem repudiandae sequi. Architecto aut, beatae commodi, consequuntur cum error exercitationem facere ipsum laborum non, odit porro provident reprehenderit vel velit! Dolorem, similique suscipit!</span><span>Corporis, cum eaque est fuga fugiat ipsa maiores minima quos similique unde? Dolores eligendi et mollitia nobis porro sed voluptates voluptatum! Consequatur culpa, ex facere necessitatibus nostrum pariatur quod voluptatem.</span></p>
+
+
+
+        </div>
+
+
+    </section>
+    <section class="container">
+         <div class="features" >
+
+            <div class="feature-item text-center">
+                <p>15</p>
+                <span>Лет нам доверяют чистоту</span>
+            </div>
+            <div class="feature-item text-center">
+                <p>2,226</p>
+                <span>Постоянных клиентов</span>
+            </div>
+            <div class="feature-item text-center">
+                <p>127,342</p>
+                <span>Кв. м. убираем ежедневно</span>
+            </div>
+               <div class="feature-item text-center">
+                <p>17</p>
+                <span>Наград и премий</span>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="container about-us-gallery mb-80">
+        <h3 class="section-header mb-80">Рекомендации</h3>
+        <ul class="gallery-wrapper">
+            <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+            <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+
+        </ul>
+    </section>
+
+
+  <section class="container about-us-gallery mb-80">
+        <h3 class="section-header mb-80">Сертификаты</h3>
+        <ul class="gallery-wrapper">
+            <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+            <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+             <li>
+                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
+                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
+                </a>
+            </li>
+
+        </ul>
+    </section>
+
+  <section style="max-width: 800px" class="container calculator-form">
+         <div class="shadow-box" >
+            <div class="shadow-box-inner">
+                <p>Давайте <span>бесплатно расчитаем </span>стоимость уборки вашего помещения</p>
+                 <form class="form">
+                    <div class="form-wrapper">
+                        <div class="form-group">
+                            <label for="service">Выберите услугу</label>
+                            <select id="service" onchange="calculate()">
+                                    <option selected disabled></option>
+                                  {% for service in allServices %}
+                                    <option data-price="{{ service.price }}" value="{{ service.id }}">{{ service.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="square">Кол-во квадратных метров</label>
+                            <input id="square" type="number" oninput="calculate()" value="0" >
+                        </div>
+                        <div class="form-result">
+                            <p>Итого: <span id="form_result">0</span></p>
+                        </div>
+                    </div>
+                    <p>Готовы сделать заказ? Позвоните или закажите обратный звонок</p>
+                    <a onclick="toggleModal('callback-modal')" href="javascript:void(0);" class="btn">Заказать звонок</a>
+                </form>
+            </div>
+        </div><!--//shadow-box-->
+    </section>
+</div><!--//main-->
+
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/Luminous.min.js' %}"></script>
+        {{ block.super }}
+    <script>
+        new LuminousGallery(document.querySelectorAll(".gallery-demo"));
+    </script>
+
+{% endblock %}

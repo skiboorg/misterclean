@@ -1,0 +1,27 @@
+{% load static %}
+<header class="header header-no-bg">
+    <div class="container header-nav-wrapper">
+        <div class="header-logo">
+            <a href="/"><img src="{% static 'img/logo_small.png' %}" alt=""></a>
+
+        </div>
+        <nav class="header-nav">
+            <ul class="header-nav__nav-wrapper">
+                <li><a class="{{ homeactive }}" href="{% url 'index' %}">Главная</a></li>
+                <li><a class="{{ servicesactive }}" href="{% url 'services' %}">Услуги</a></li>
+                <li><a class="{{ contactsactive }}" href="{% url 'contacts' %}">Контакты</a></li>
+                <li><a class="{{ aboutactive }}" href="{% url 'about' %}">О нас</a></li>
+
+            </ul>
+        </nav>
+
+        <div class="header-phone">
+            <p>8 351 777-20-03</p>
+            <a class="btn"  href="javascript: void(0)" onclick="toggleModal('callback-modal')">Заказать звонок</a>
+        </div>
+        <div class="mobile-toggle">
+
+        </div>
+    </div><!-- // header-nav-wrapper -->
+
+</header>

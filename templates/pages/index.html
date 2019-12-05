@@ -1,0 +1,283 @@
+{% extends  'basic.html' %}
+{% load static %}
+
+{% block title %}
+   {{ pageTitle }}
+{% endblock %}
+
+{% block keywords %}
+    {{ pageKeywords }}
+{% endblock %}
+
+{% block description %}
+    {{ pageDescription }}
+{% endblock %}
+
+{% block css %}
+    {{ block.super }}
+     <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
+{% endblock %}
+
+
+
+{% block content %}
+    {% include 'header_index.html' %}
+  <div class="main">
+    <section class="feature">
+        <h3>Мы бесплатно устраненим все недочёты, обнаруженные в течении 24 часов</h3>
+        <div class="feature-wrapper">
+            <div class="container feature-relative">
+                <div class=" feature-inner">
+                    <div data-num="01" class="feature-item shadow-box item1">
+                        <div class="shadow-box-inner">
+                            <p><span>Стоимость уборки не меняется</span> после утверждения</p>
+                        </div>
+                    </div>
+                    <div data-num="02" class="feature-item shadow-box item2">
+                        <div class="shadow-box-inner">
+                            <p><span>Все сотрудники</span> проходят обучение и имеют санкнижки</p>
+                        </div>
+                    </div>
+                    <div data-num="03" class="feature-item shadow-box item3">
+                        <div class="shadow-box-inner">
+                            <p><span>Используем только</span> безопасные моющие средства</p>
+                        </div>
+                    </div>
+                    <div data-num="04" class="feature-item shadow-box item4">
+                        <div class="shadow-box-inner">
+                            <p><span>Мы проверяем</span> отзывы, разбираемся с жалобами</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!--//feature-->
+    <section class="services">
+         <h3>Предлагаем самый полный спектр услуг профессионального клининга</h3>
+        <div class="container-sm">
+            <div class="services-items">
+                {% for service in servicesAtHome %}
+                    <div class="services-item">
+                    <a href="{% url 'service' service.name_slug %}">
+                         <img style="border-radius: 50%" src="{{ service.image_small.url }}" alt="">
+                        <p>{{ service.name }}</p>
+                    </a>
+                </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section>
+    <section class="about">
+           <h3>Клининговая компания "Мистер Клин"</h3>
+        <div class="about-wrapper">
+             <div class="container about-inner">
+
+            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aperiam, blanditiis deserunt, eaque eos excepturi illo incidunt iste laboriosam neque officia quae quaerat repudiandae sapiente similique, sit ullam vitae!</span><span>Delectus ea modi, omnis perspiciatis quos rem repudiandae sequi. Architecto aut, beatae commodi, consequuntur cum error exercitationem facere ipsum laborum non, odit porro provident reprehenderit vel velit! Dolorem, similique suscipit!</span><span>Corporis, cum eaque est fuga fugiat ipsa maiores minima quos similique unde? Dolores eligendi et mollitia nobis porro sed voluptates voluptatum! Consequatur culpa, ex facere necessitatibus nostrum pariatur quod voluptatem.</span></p>
+        </div>
+        </div>
+    </section>
+
+    <section class="our-clients">
+        <div class="container">
+                 <div class="clients-slider" id="clients-slider">
+                    <div class="clients-slider-item">
+                        <img src="{% static 'img/client.png' %} " alt="">
+                    </div>
+                      <div class="clients-slider-item">
+                        <img src="{% static 'img/client.png' %} " alt="">
+                    </div>
+                      <div class="clients-slider-item">
+                        <img src="{% static 'img/client.png' %} " alt="">
+                    </div>
+                      <div class="clients-slider-item">
+                        <img src="{% static 'img/client.png' %} " alt="">
+                    </div>
+                      <div class="clients-slider-item">
+                        <img src="{% static 'img/client.png' %} " alt="">
+                    </div>
+                      <div class="clients-slider-item">
+                        <img src="{% static 'img/client.png' %} " alt="">
+                    </div>
+
+            </div>
+            <div class="controls" id="clients-slider-controls">
+                  <div style="bottom: 15px" class="prev">
+                    <img src="{% static 'img/left-arrow.png' %} " alt="">
+                </div>
+                <div style="bottom: 15px" class="next">
+                    <img src="{% static 'img/right-arrow.png' %}" alt="">
+                </div>
+            </div>
+
+        </div>
+
+
+    </section>
+
+
+      <section class="our-help not-visible-md">
+        <div class="container ">
+            <h3>Наша работа и отзывы о ней</h3>
+
+            <div class="our-help-inner">
+                <div id="review_image" class="our-help-media" style="background: url({{ allComments.first.image.url }}) no-repeat center">
+                </div>
+                  <div class="our-help-info">
+                    <div class="our-help-info-header mb30">
+                       <img id="writtenbyavatar" src="{{ allComments.first.writtenByAvatar.url }}">
+                        <div class="our-help-info-writtenby">
+                            <p id="writtenby">{{ allComments.first.writtenBy }}</p>
+                            <a id="writtenbyvk" href="#">{{ allComments.first.writtenByVk }}</a>
+                        </div>
+                    </div>
+                       <p id="review_shortReview" class="mb30">
+                        {{ allComments.first.description }}
+                   </p>
+                </div>
+            </div><!-- //our-help-inner-->
+
+            <div class="our-help-media-slider" id="our-help-media-slider">
+               {% for comment in allComments %}
+                <div class="our-help-media-slide-item"
+                     data-image="{{ comment.image.url }}"
+                     data-writtenby="{{ comment.writtenBy }}"
+                     data-writtenbyavatar="{{ comment.writtenByAvatar.url }}"
+                     data-writtenbyvk="{{ comment.writtenByVk }}"
+                     data-text="{{ comment.description }}"
+
+                     onclick="changeReview(this)">
+                    <div class="our-help-media-slide-image">
+                        <img src="{{ comment.image.url }}" alt="">
+                    </div>
+                </div>
+               {% endfor %}
+            </div>
+
+            <div class="controls" id="customize-controls">
+                 <div style="bottom: 50px" class="prev">
+                    <img  src="{% static 'img/left-arrow.png' %} " alt="">
+                </div>
+                <div style="bottom: 50px" class="next">
+                    <img src="{% static 'img/right-arrow.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+
+    </section><!-- // our-help -->
+
+</div><!--//main-->
+
+
+
+
+{% endblock %}
+
+{% block js %}
+    {{ block.super }}
+    <script src="{% static 'js/tiny-slider.js' %}"></script>
+   <script>
+
+
+
+
+       let review_image=document.getElementById('review_image'), writtenbyavatar=document.getElementById('writtenbyavatar'),
+            writtenby=document.getElementById('writtenby'),writtenbyvk=document.getElementById('writtenbyvk'),
+            review_shortReview=document.getElementById('review_shortReview')
+    function changeReview(el) {
+
+            review_image.style.background = "url('"+el.dataset.image+"') no-repeat center"
+            writtenby.innerText = el.dataset.writtenby
+            writtenbyavatar.innerText = el.dataset.writtenbyavatar
+            writtenbyvk.innerText = el.dataset.writtenbyvk
+            review_shortReview.innerHTML = el.dataset.text
+
+    }
+
+
+    var doc = document
+
+    var mobile = 'false',
+        isTestPage = false,
+        isDemoPage = true,
+        classIn = 'jello',
+        classOut = 'rollOut',
+        speed = 400,
+        doc = document,
+        win = window,
+        ww = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth,
+        fw = getFW(ww),
+        initFns = {},
+        sliders = new Object(),
+        edgepadding = 50,
+        gutter = 10;
+
+    function getFW (width) {
+        var sm = 400, md = 900, lg = 1400;
+        return width < sm ? 150 : width >= sm && width < md ? 200 : width >= md && width < lg ? 300 : 400;
+    }
+    window.addEventListener('resize', function() { fw = getFW(ww); });
+
+    var options = {
+        'our-help-media-slider': {
+            container: '',
+            items: 4,
+            gutter:10,
+            controlsContainer: '#customize-controls',
+            autoplay: true,
+            autoplayTimeout: 4000,
+            speed: 1000,
+
+        },
+        'clients-slider': {
+            container: '',
+            items: 5,
+            gutter: 10,
+            controlsContainer: '#clients-slider-controls',
+            autoplay: true,
+            autoplayTimeout: 2000,
+            speed: 1000,
+
+        },
+
+
+    }
+
+
+
+    for (var i in options) {
+        var item = options[i];
+        item.container = '#' + i;
+        item.swipeAngle = false;
+        if (!item.speed) { item.speed = speed; }
+
+        if (doc.querySelector(item.container)) {
+            sliders[i] = tns(options[i]);
+
+            // call test functions
+            if (isTestPage && initFns[i]) { initFns[i](); }
+
+
+            // test responsive pages
+        } else if (i.indexOf('responsive') >= 0) {
+            if (isTestPage && initFns[i]) { initFns[i](); }
+        }
+    }
+
+    // goto
+    if (doc.querySelector('#base_wrapper')) {
+        var goto = doc.querySelector('#base_wrapper .goto-controls'),
+            gotoBtn = goto.querySelector('.button'),
+            gotoInput = goto.querySelector('input');
+
+        gotoBtn.onclick = function (event) {
+            var index = gotoInput.value;
+            sliders['base'].goTo(index);
+        };
+    }
+
+
+
+
+</script>
+{% endblock %}

@@ -1,7 +1,6 @@
 .about-us
-  background: url(../img/about-us-bg.jpg) no-repeat 70% 0
-  height: 562px
-  margin-bottom: 80px
+  background: url(../img/about-bg.png) no-repeat 0 0
+  height: 780px
 
   &-inner
     p
@@ -14,128 +13,13 @@
       span
         display: block
         margin-bottom: 35px
+.gallery-wrapper
+  display: grid
+  grid-gap: 30px
+  grid-template-columns: repeat(auto-fit,minmax(165px,1fr))
 
 @media (max-width: 425px)
 	.about-us
 		background: none
 		height: fit-content
 
-
-.lb-album
-  display: grid
-  grid-template-columns: repeat(auto-fill, minmax(100px, 170px))
-  grid-gap: 10px
-
-.lb-album li > a,
-.lb-album li > a img
-	display: block
-	opacity: .7
-	transition: opacity .2s ease-in
-
-.lb-album li > a
-
-	position: relative
-
-.lb-album li > a:hover
-	opacity: 1
-	transition: opacity .1s ease-in
-
-
-
-.lb-overlay
-	width: 0px
-	height: 0px
-	position: fixed
-	overflow: hidden
-	left: 0px
-	top: 0px
-	padding: 0px
-	z-index: 99
-	text-align: center
-	background: rgba(0, 0, 0, 0.24)
-	background: radial-gradient(center, ellipse cover, rgba(255,255,255,0.56) 0%, rgba(0, 0, 0, 0.42) 100%)
-
-.lb-overlay > div
-	position: relative
-	color: rgba(27,54,81,0.8)
-	width: 550px
-	height: 80px
-	margin: 40px auto 0px auto
-	text-shadow: 0px 1px 1px rgba(255,255,255,0.6)
-
-.lb-overlay div h3,
-.lb-overlay div p
-	padding: 0px 20px
-	width: 200px
-	height: 60px
-
-.lb-overlay div h3
-	font-size: 36px
-	float: left
-	text-align: right
-	border-right: 1px solid rgba(27,54,81,0.4)
-
-.lb-overlay div h3 span,
-.lb-overlay div p
-	font-size: 16px
-	font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif
-	font-style: italic
-
-.lb-overlay div h3 span
-	display: block
-	line-height: 6px
-
-.lb-overlay div p
-	font-size: 14px
-	text-align: left
-	float: left
-	width: 260px
-
-.lb-overlay a.lb-close
-	background: rgba(27,54,81,0.8)
-	z-index: 1001
-	color: #fff
-	position: absolute
-	top: 43px
-	left: 50%
-	font-size: 15px
-	line-height: 26px
-	text-align: center
-	width: 100px
-	height: 23px
-	overflow: hidden
-	margin-left: -25px
-	opacity: 0
-	filter: alpha(opacity=0) /* internet explorer */
-
-	box-shadow: 0px 1px 2px rgba(0,0,0,0.3)
-
-.lb-overlay img
-	max-height: 100%
-	position: relative
-	opacity: 0
-	filter: alpha(opacity=0) /* internet explorer */
-
-	box-shadow: 0px 2px 7px rgba(0,0,0,0.2)
-	transition: opacity 0.5s linear
-
-
-
-
-
-
-.lb-overlay:target
-	width: auto
-	height: auto
-	bottom: 0px
-	right: 0px
-	padding: 80px 100px 120px 100px
-
-.lb-overlay:target img,
-.lb-overlay:target a.lb-close
-	opacity: 1
-	filter: alpha(opacity=99) /* internet explorer */
-
-
-x:-o-prefocus, .lb-overlay img
-    height: 100%

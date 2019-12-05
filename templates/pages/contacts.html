@@ -1,0 +1,86 @@
+{% extends  'basic.html' %}
+{% load static %}
+
+{% block title %}
+   {{ pageTitle }}
+{% endblock %}
+
+{% block keywords %}
+    {{ pageKeywords }}
+{% endblock %}
+
+{% block description %}
+    {{ pageDescription }}
+{% endblock %}
+{% block css %}
+
+    {{ block.super }}
+{% endblock %}
+
+
+
+{% block content %}
+    {% include 'header.html' %}
+    <div class="main mt50">
+    <div class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li class="active">Контакты</li>
+            </ul>
+        </div>
+    </div><!--// breadcrumbs-->
+
+    <section class="contacts">
+        <div class="container">
+            <h1 class="mb50">Контакты</h1>
+        </div>
+
+        <div class="contacts-bg">
+            <div class="container">
+
+                <div class="contacts-work-time ">
+                    <p class="text-block mb30">Адрес: 454081, Челябинск</p>
+                    <p class="text-block mb40 text-bold">Артиллерийская, 98-А</p>
+                    <a class="btn" onclick="toggleModal('callback-modal')">Заказать звонок</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="contacts-wrapper">
+                <div class="contacts-phones">
+                    <div class="contacts-phones-header">
+                        <p>Есть вопрос? Звоните!</p>
+                    </div>
+                      <div class="contacts-mail-info no-border text-center">
+                        <p class="mb30">Любую информациюможно уточнить в любом мессенджере по номеру:</p>
+                        <span class="mb30">+7 (351) 777-20-03</span>
+                    </div>
+                </div>
+                <div class="contacts-mail ">
+                    <div class="contacts-mail-header">
+                        <p>Или пишите!</p>
+                    </div>
+
+                    <div class="contacts-mail-info no-border">
+                        <p class="mb30">Любую интересующую информацию можно уточнить по адресу:</p>
+                        <span>misterclean@mail.ru</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </section><!--// contacts-->
+</div><!-- // main -->
+
+{% endblock %}
+
+{% block js %}
+        {{ block.super }}
+
+
+{% endblock %}
