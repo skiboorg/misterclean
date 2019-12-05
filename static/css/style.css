@@ -563,6 +563,90 @@ button:hover {
   color: #292929;
 }
 
+.calculator-form {
+  margin-bottom: 60px;
+}
+
+.calculator-form .shadow-box {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.calculator-form .shadow-box-inner {
+  padding: 35px 60px;
+}
+
+.calculator-form .shadow-box-inner p {
+  font: 24px "MuseoSansCyrl-300", sans-serif;
+  color: #1f1f1f;
+  line-height: 30px;
+  max-width: 580px;
+  text-align: start;
+  margin: 0 0 30px 0;
+}
+
+.calculator-form .shadow-box-inner p span {
+  color: #18b9c2;
+  font-family: "MuseoSansCyrl-700", sans-serif;
+}
+
+.input_style-2 {
+  border: none;
+  background: #f8f9fb;
+  padding: 30px 25px;
+  font-family: "Gotham Regular", sans-serif;
+  font-size: 16px;
+  color: #292929;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.input_style-2::-webkit-input-placeholder {
+  color: #83868f;
+  font-family: "Gotham Regular", sans-serif;
+  font-size: 16px;
+}
+
+.input_style-2::-moz-placeholder {
+  color: #83868f;
+  font-family: "Gotham Regular", sans-serif;
+  font-size: 16px;
+}
+
+.input_style-2:-ms-input-placeholder {
+  color: #83868f;
+  font-family: "Gotham Regular", sans-serif;
+  font-size: 16px;
+}
+
+.input_style-2::-ms-input-placeholder {
+  color: #83868f;
+  font-family: "Gotham Regular", sans-serif;
+  font-size: 16px;
+}
+
+.input_style-2::placeholder {
+  color: #83868f;
+  font-family: "Gotham Regular", sans-serif;
+  font-size: 16px;
+}
+
+.form-header {
+  font: 27px "BerlingskeSerif-DBdItalic", sans-serif;
+  color: #1f1f1f;
+  margin-bottom: 15px;
+}
+
+.form-header-small {
+  font: 16px "Gotham Regular", sans-serif;
+  line-height: 24px;
+  margin-bottom: 40px;
+}
+
 .header.header-no-bg {
   padding: 20px;
   border-bottom: 1px solid #cecece;
@@ -1129,6 +1213,69 @@ button:hover {
   margin-bottom: 140px;
 }
 
+.blog {
+  margin-bottom: 130px;
+}
+
+.blog-posts-wrapper {
+  display: grid;
+  -webkit-column-gap: 30px;
+  -moz-column-gap: 30px;
+  column-gap: 30px;
+  row-gap: 50px;
+  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+}
+
+.blog-post-item {
+  -webkit-box-shadow: 0 0 46px rgba(34, 36, 37, 0.12);
+  box-shadow: 0 0 46px rgba(34, 36, 37, 0.12);
+  border-radius: 10px;
+}
+
+.blog-post-item img {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.blog-post-item h5 {
+  color: #1f1f1f;
+  font-family: "BerlingskeSerif-MdItalic", sans-serif;
+  font-size: 24px;
+  margin-bottom: 35px;
+}
+
+.blog-post-item h5 a {
+  color: inherit;
+  display: block;
+  text-align: center;
+}
+
+.blog-post-item p {
+  max-width: 360px;
+  font-family: "Gotham Regular", sans-serif;
+  font-size: 14px;
+  color: #292929;
+}
+
+.blog-post-text h1 {
+  font-family: "MuseoSansCyrl-700", sans-serif;
+  font-size: 21px;
+  color: #1f1f1f;
+  margin-bottom: 50px;
+}
+
+.blog-post-text p {
+  line-height: 30px;
+  font-family: "Gotham Regular", sans-serif;
+  font-size: 16px;
+  color: #292929;
+}
+
+.blog-post-image img {
+  border-radius: 10px;
+}
+
 .feature {
   margin-bottom: 70px;
 }
@@ -1263,15 +1410,14 @@ button:hover {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
+  -webkit-box-pack: start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
 }
 
 .map-inner .shadow-box {
   -ms-flex-preferred-size: 33.33%;
   flex-basis: 33.33%;
-  height: 70%;
 }
 
 .map-inner .shadow-box-inner {
@@ -1413,6 +1559,38 @@ button:hover {
   }
 }
 
+@media (max-width: 1090px) {
+  .blog-posts-wrapper {
+    grid-template-columns: 1fr 1fr;
+    text-align: center;
+  }
+
+  .blog-post-item h5 {
+    width: 100%;
+  }
+
+  .blog-post-item p {
+    max-width: none;
+  }
+
+  .blog-post-image {
+    -webkit-box-ordinal-group: 2;
+    -ms-flex-order: 1;
+    order: 1;
+    text-align: center;
+  }
+
+  .blog-post-text {
+    -webkit-box-ordinal-group: 3;
+    -ms-flex-order: 2;
+    order: 2;
+  }
+
+  .blog-post-text h1 {
+    text-align: center;
+  }
+}
+
 @media (max-width: 1024px) {
   .map-inner .shadow-box {
     min-width: 320px;
@@ -1499,6 +1677,12 @@ button:hover {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+  }
+}
+
+@media (max-width: 760px) {
+  .blog-posts-wrapper {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -12,26 +12,28 @@
 <header class="header header-no-bg">
     <div class="container header-nav-wrapper">
         <div class="header-logo">
-            <span>К</span>
-            <p>Более 10-ти лет ведём бух учёт самых разных компаний</p>
+            <a href="/"><img src="img/logo.png" alt=""></a>
 
         </div>
-        <div class="header-nav">
+        <nav class="header-nav">
             <ul class="header-nav__nav-wrapper">
-                <li><a href="#">Главная</a></li>
-                <li><a href="#">Отзывы</a></li>
-                <li><a href="#">Полезные статьи</a></li>
-                <li><a href="#">О компании</a></li>
+                <li><a class="active" href="#">Главная</a></li>
+                <li><a href="#">Услуги</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">О нас</a></li>
 
             </ul>
-        </div>
+        </nav>
 
         <div class="header-phone">
-            <p>8 800 999 99 99</p>
-            <p><a href="">Перезвоните мне</a></p>
+            <p>8 351 777-20-03</p>
+            <a class="btn" href="">Заказать звонок</a>
         </div>
-        <div class="mobile-toggle"></div>
+        <div class="mobile-toggle">
+
+        </div>
     </div><!-- // header-nav-wrapper -->
+
 </header>
 <div class="main">
     <div class="container">
@@ -48,32 +50,32 @@
             <h1>Блог</h1>
             <div class="blog-posts-wrapper">
                 <div class="blog-post-item">
-                    <a href=""><img class="mb30" src="https://dummyimage.com/360x250/000/fff" alt=""></a>
+                    <a href=""><img class="mb30" src="https://dummyimage.com/555x225/000/fff" alt=""></a>
+                    <h5 class="mb20"><a href="#">Название статьи </a></h5>
+
+                </div><!--// blog-post-item-->
+                <div class="blog-post-item">
+                    <a href=""><img class="mb30" src="https://dummyimage.com/555x225/000/fff" alt=""></a>
                     <h5 class="mb20"><a href="#">Название статьи - пишется в две строки</a></h5>
 
                 </div><!--// blog-post-item-->
                 <div class="blog-post-item">
-                    <a href=""><img class="mb30" src="https://dummyimage.com/360x250/000/fff" alt=""></a>
+                    <a href=""><img class="mb30" src="https://dummyimage.com/555x225/000/fff" alt=""></a>
                     <h5 class="mb20"><a href="#">Название статьи - пишется в две строки</a></h5>
 
                 </div><!--// blog-post-item-->
                 <div class="blog-post-item">
-                    <a href=""><img class="mb30" src="https://dummyimage.com/360x250/000/fff" alt=""></a>
+                    <a href=""><img class="mb30" src="https://dummyimage.com/555x225/000/fff" alt=""></a>
                     <h5 class="mb20"><a href="#">Название статьи - пишется в две строки</a></h5>
 
                 </div><!--// blog-post-item-->
                 <div class="blog-post-item">
-                    <a href=""><img class="mb30" src="https://dummyimage.com/360x250/000/fff" alt=""></a>
+                    <a href=""><img class="mb30" src="https://dummyimage.com/555x225/000/fff" alt=""></a>
                     <h5 class="mb20"><a href="#">Название статьи - пишется в две строки</a></h5>
 
                 </div><!--// blog-post-item-->
                 <div class="blog-post-item">
-                    <a href=""><img class="mb30" src="https://dummyimage.com/360x250/000/fff" alt=""></a>
-                    <h5 class="mb20"><a href="#">Название статьи - пишется в две строки</a></h5>
-
-                </div><!--// blog-post-item-->
-                <div class="blog-post-item">
-                    <a href=""><img class="mb30" src="https://dummyimage.com/360x250/000/fff" alt=""></a>
+                    <a href=""><img class="mb30" src="https://dummyimage.com/555x225/000/fff" alt=""></a>
                     <h5 class="mb20"><a href="#">Название статьи - пишется в две строки</a></h5>
 
                 </div><!--// blog-post-item-->
@@ -82,6 +84,34 @@
 
 
     </section><!--// blog-->
+    <section style="max-width: 800px" class="container calculator-form">
+         <div class="shadow-box" >
+            <div class="shadow-box-inner">
+                <p>Давайте <span>бесплатно расчитаем </span>стоимость уборки вашего помещения</p>
+                <form class="form">
+                    <div class="form-wrapper">
+                        <div class="form-group">
+                            <label for="service">Выберите услугу</label>
+                            <select id="service" >
+                                <option>2131232</option>
+                                <option>2131232</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="square">Кол-во квадратных метров</label>
+                            <input id="square" type="text" value="" >
+                        </div>
+                        <div class="form-result">
+                            <p>Итого: <span id="form_result">9 900</span></p>
+                        </div>
+                    </div>
+                    <p>Готовы сделать заказ? Позвоните или закажите обратный звонок</p>
+                    <a href="#" class="btn">Заказать звонок</a>
+                </form>
+            </div>
+        </div><!--//shadow-box-->
+    </section>
+
 </div><!-- // main -->
  <section class="map">
         <div class="container map-inner">

@@ -2,21 +2,30 @@
   margin-bottom: 130px
 .blog-posts-wrapper
   display: grid
-  grid-gap: 30px
-  grid-template-columns: repeat(auto-fill, minmax(360px, 330px))
+  column-gap: 30px
+  row-gap: 50px
+  grid-template-columns: repeat(auto-fit,minmax(370px,1fr))
 
 .blog-post-item
+  box-shadow: 0 0 46px rgba(34, 36, 37, 0.12)
+  border-radius: 10px
 
   img
-    border-radius: 10px
-    max-width: 330px
+    border-top-left-radius: 10px
+    border-top-right-radius: 10px
+    margin-bottom: 30px
+    //max-width: 330px
   h5
     color: $color-text-d-grey
-    width: 290px
-    font-family: $f-GM
-    font-size: 21px
+    //width: 290px
+    font-family: $f-BerMd
+    font-size: 24px
+    margin-bottom: 35px
+
     a
       color: inherit
+      display: block
+      text-align: center
   p
     max-width: 360px
     font-family: $f-GR
@@ -27,7 +36,7 @@
 
 .blog-post-text
   h1
-    font-family: $f-M900
+    font-family: $f-M700
     font-size: 21px
     color: $color-text-d-grey
     margin-bottom: 50px
