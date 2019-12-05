@@ -594,7 +594,7 @@ button:hover {
 .input_style-2 {
   border: none;
   background: #f8f9fb;
-  padding: 30px 25px;
+  padding: 20px 25px;
   font-family: "Gotham Regular", sans-serif;
   font-size: 16px;
   color: #292929;
@@ -1442,9 +1442,12 @@ button:hover {
   color: #1f1f1f;
 }
 
-.map-inner-contact a {
-  font-family: "Gotham Light", sans-serif;
-  color: #5d96e5;
+.map-inner a {
+  font-family: "Gotham Regular", sans-serif;
+  color: #ffffff;
+  width: 100%;
+  padding: 20px 0;
+  margin-top: 30px;
 }
 
 .footer {

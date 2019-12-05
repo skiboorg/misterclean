@@ -206,23 +206,16 @@
                     <p id="review_shortReview" class="mb30">
                         На третьем курсе Юлия стала мамой, возможности писать рефераты и курсовые работы не стало. Брать академический отпуск — финансово нецелесообразно. Тогда она решила обратиться к нам.
                     </p>
-                    <div class="our-help-inner-full-review">
-                        На третьем курсе Юлия стала мамой, возможности писать рефераты и курсовые работы не стало. Брать академический отпуск — финансово нецелесообразно. Тогда она решила обратиться к нам.
-                        На третьем курсе Юлия стала мамой, возможности писать рефераты и курсовые работы не стало. Брать академический отпуск — финансово нецелесообразно. Тогда она решила обратиться к нам.
-                        На третьем курсе Юлия стала мамой, возможности писать рефераты и курсовые работы не стало. Брать академический отпуск — финансово нецелесообразно. Тогда она решила обратиться к нам.
-
-                    </div>
-                    <a id="readfullreview_btn" class="link text-upper mb40" onclick="readFullReview()">Читать далее...</a>
-                    <a href="#" class="btn btn-md">оставить свой отзыв</a>
+                   
                 </div>
             </div><!-- //our-help-inner-->
             <div class="our-help-media-slider" id="our-help-media-slider">
                 <div class="our-help-media-slide-item"
                      data-image="img/slide.png"
-                     data-title="titleeeeeeeeeeeeeeeee"
-                     data-description="description"
-                     data-shortReview="shortReviewshortReview"
-                     data-fullReview="fullReviewfullReviewfullReviewfullReview"
+                     data-title="1titleeeeeeeeeeeeeeeee"
+                     data-description="desc2ription"
+                     data-shortReview="shor2tReviewshortReview"
+                     data-fullReview="fullRevie2wfullReviewfullReviewfullReview"
                      onclick="changeReview(this)">
                     <div class="our-help-media-slide-image">
                         <img src="img/slide.png" alt="">
@@ -388,6 +381,7 @@
     function changeReview(el) {
         let image = el.dataset.image, title = el.dataset.title, description = el.dataset.description,
             shortReview = el.dataset.shortReview, fullReview = el.dataset.fullReview
+        review_description = description
         review_image.style.background = "url('"+image+"') no-repeat"
         review_title.innerText = title
     }
