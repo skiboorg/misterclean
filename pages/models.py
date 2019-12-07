@@ -31,7 +31,7 @@ class ServiceName(models.Model):
         super(ServiceName, self).save(*args, **kwargs)
         
     def get_absolute_url(self):
-        return f'/service/{self.name_slug}/'
+        return '/service/{}/'.format(self.name_slug)
 
     def __str__(self):
         return 'Вид работы : {}'.format(self.name)
