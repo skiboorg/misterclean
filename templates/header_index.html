@@ -29,32 +29,6 @@
         <p class="not-visible-sm">Выбере услугу и количество квадратных метров помещения
             чтобы определить примерную стоимость уборки</p>
 
-        <div class="shadow-box" >
-            <div class="shadow-box-inner">
-                <p>Давайте <span>бесплатно расчитаем </span>стоимость уборки вашего помещения</p>
-                <form class="form">
-                    <div class="form-wrapper">
-                        <div class="form-group">
-                            <label for="service">Выберите услугу</label>
-                            <select id="service" onchange="calculate()">
-                                    <option selected disabled></option>
-                                  {% for service in allServices %}
-                                    <option data-price="{{ service.price }}" value="{{ service.id }}">{{ service.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="square">Кол-во квадратных метров</label>
-                            <input id="square" type="number" oninput="calculate()" value="0" >
-                        </div>
-                        <div class="form-result">
-                            <p>Итого: <span id="form_result">0</span></p>
-                        </div>
-                    </div>
-                    <p>Готовы сделать заказ? Позвоните или закажите обратный звонок</p>
-                    <a onclick="toggleModal('callback-modal')" href="javascript:void(0);" class="btn">Заказать звонок</a>
-                </form>
-            </div>
-        </div><!--//shadow-box-->
+       {% include 'pages/form.html' %}
     </div><!-- // header-inner -->
 </header>
