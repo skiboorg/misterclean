@@ -82,11 +82,25 @@
 
         function calculate() {
             let squareVal = parseInt(square.value),
-                servicePrice = parseInt(service.options[service.selectedIndex].dataset.price)
+                servicePrice = parseInt(service.options[service.selectedIndex].dataset.price),
+                servicePrice1 = parseInt(service.options[service.selectedIndex].dataset.price1),
+                servicePrice2 = parseInt(service.options[service.selectedIndex].dataset.price2)
 
             if (servicePrice && squareVal > 0){
                 addInfo = true
-                result.innerText = squareVal * servicePrice
+
+                if (squareVal < 50){
+                  result.innerText = squareVal * servicePrice
+                }
+
+                if (squareVal >= 50 && squareVal < 100 ){
+                    result.innerText = squareVal * servicePrice1
+                }
+
+                if (squareVal >= 100 ){
+                  result.innerText = squareVal * servicePrice2
+                }
+
             }
             else {
                 addInfo = false

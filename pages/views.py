@@ -8,6 +8,7 @@ def index(request):
     homeactive = 'active'
     allServices = ServiceName.objects.all()
     servicesAtHome = allServices.filter(isAtHome=True)
+    servicesInCalc = allServices.filter(isInCalc=True)
     allComments = Comment.objects.all()
     try:
         seotag = SeoTag.objects.first()
@@ -43,6 +44,7 @@ def index(request):
 def about(request):
     aboutactive = 'active'
     allServices = ServiceName.objects.all()
+    servicesInCalc = allServices.filter(isInCalc=True)
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.aboutTitle
@@ -66,6 +68,7 @@ def services(request):
         pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
         pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
     allServices = ServiceName.objects.all()
+    servicesInCalc = allServices.filter(isInCalc=True)
     return render(request, 'pages/services.html', locals())
 
 
@@ -88,6 +91,7 @@ def service(request,slug):
     servicesactive = 'active'
     currentService = get_object_or_404(ServiceName, name_slug=slug)
     allServices = ServiceName.objects.all()
+    servicesInCalc = allServices.filter(isInCalc=True)
     pageTitle = currentService.page_title
     pageDescription = currentService.page_description
     pageKeywords = currentService.page_keywords

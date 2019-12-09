@@ -7,8 +7,12 @@
                             <label for="service">Выберите услугу</label>
                             <select id="service" onchange="calculate()">
                                     <option selected disabled></option>
-                                  {% for service in allServices %}
-                                    <option data-price="{{ service.price }}" value="{{ service.id }}">{{ service.name }}</option>
+                                  {% for service in servicesInCalc %}
+                                    <option
+                                            data-price="{{ service.price }}"
+                                            data-price1="{% if service.price1 %}  {{ service.price1 }} {% else %}  {{ service.price }} {% endif %}"
+                                            data-price2="{% if service.price2 %}  {{ service.price2 }} {% else %}  {{ service.price }} {% endif %}"
+                                            value="{{ service.id }}">{{ service.name }}</option>
                                 {% endfor %}
                             </select>
                         </div>

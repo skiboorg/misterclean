@@ -14,9 +14,12 @@ class ServiceName(models.Model):
     page_title = models.CharField('Название страницы SEO', max_length=255, blank=True, null=True)
     page_description = models.CharField('Описание страницы SEO', max_length=255, blank=True, null=True)
     page_keywords = models.TextField('Keywords SEO', blank=True, null=True)
-    price = models.IntegerField('Стоимость услуги', default=0)
+    price = models.IntegerField('Стоимость услуги без скидки', default=0)
+    price1 = models.IntegerField('Скидка свыше 50 кв.м.', default=0)
+    price2 = models.IntegerField('Скидка свыше 100 кв.м.', default=0)
     pageText = RichTextUploadingField('Текст на страницу с услугой', blank=True, null=True)
     isAtHome = models.BooleanField('Отображать на главной?', default=False)
+    isInCalc = models.BooleanField('Отображать в калькуляторе?', default=False)
 
 
     def save(self, *args, **kwargs):

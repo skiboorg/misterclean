@@ -26,33 +26,7 @@
      <div class="section-header">
          <h1>{{ currentService.page_h1 }}</h1>
      </div>
-         <div class="shadow-box" >
-            <div class="shadow-box-inner">
-                <p>Давайте <span>бесплатно расчитаем </span>стоимость уборки вашего помещения</p>
-                 <form class="form">
-                    <div class="form-wrapper">
-                        <div class="form-group">
-                            <label for="service">Выберите услугу</label>
-                            <select id="service" onchange="calculate()">
-
-                                  {% for service in allServices %}
-                                    <option {% if currentService == service %} selected{% endif %} data-price="{{ service.price }}" value="{{ service.id }}">{{ service.name }}</option>
-                                {% endfor %}
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label for="square">Кол-во квадратных метров</label>
-                            <input id="square" type="number" oninput="calculate()" value="0" >
-                        </div>
-                        <div class="form-result">
-                            <p style="margin: 15px 0">Итого: <span id="form_result">0</span></p>
-                        </div>
-                    </div>
-                    <p>Готовы сделать заказ? Позвоните или закажите обратный звонок</p>
-                    <a onclick="toggleModal('callback-modal')" href="javascript:void(0);" class="btn">Заказать звонок</a>
-                </form>
-            </div>
-        </div><!--//shadow-box-->
+         {% include 'pages/form.html' %}
     </section>
     <section class="about">
            <h3>Клининговая компания "Мистер Клин"</h3>
