@@ -6,7 +6,7 @@ import string
 
 class ServiceName(models.Model):
     name = models.CharField('Вид работы', max_length=255, blank=False, null=True)
-    image = models.ImageField('Изображение для страницы со всеми услугами (555 x 225)', upload_to='services_img/', blank=False, null=True)
+    image = models.ImageField('Изображение для страницы со всеми услугами (555 x 225)', upload_to='services_img/', blank=True, null=True)
     image_small = models.ImageField('Изображение для главной превью (170 x 170)', upload_to='services_img/', blank=True, null=True)
     name_lower = models.CharField(max_length=255, blank=True, null=True, db_index=True)
     name_slug = models.CharField(max_length=255, blank=True, null=True, unique=True, db_index=True)
