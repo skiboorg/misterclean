@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-   {{ pageTitle }}
+    {{ pageTitle }}
 {% endblock %}
 
 {% block keywords %}
@@ -13,7 +13,7 @@
     {{ pageDescription }}
 {% endblock %}
 {% block css %}
-     <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
     {{ block.super }}
 {% endblock %}
 
@@ -21,111 +21,135 @@
 
 {% block content %}
     {% include 'header.html' %}
-   <div class="main">
-     <section style="max-width: 800px" class="container calculator-form">
-     <div class="section-header">
-         <h1>{{ currentService.page_h1 }}</h1>
-     </div>
-         {% include 'pages/form.html' %}
-    </section>
-    <section class="about">
-           <h3>Клининговая компания "Мистер Клин"</h3>
-        <div class="about-wrapper">
-             <div class="container about-inner">
-                 <div style="width: 450px">
-                        {{ currentService.pageText | safe }}
-                 </div>
-
-
-        </div>
-        </div>
-    </section>
-
-
-
-
-       <section class="our-help not-visible-md">
-        <div class="container ">
-            <h3>Наша работа и отзывы о ней</h3>
-
-            <div class="our-help-inner">
-                <div id="review_image" class="our-help-media" style="background: url({{ allComments.first.image.url }}) no-repeat center">
-                </div>
-                  <div class="our-help-info">
-                    <div class="our-help-info-header mb30">
-                       <img id="writtenbyavatar" src="{{ allComments.first.writtenByAvatar.url }}">
-                        <div class="our-help-info-writtenby">
-                            <p id="writtenby">{{ allComments.first.writtenBy }}</p>
-                            <a id="writtenbyvk" href="#">{{ allComments.first.writtenByVk }}</a>
+    <div class="main">
+        <section style="max-width: 800px" class="container calculator-form">
+            <div class="section-header">
+                <h1>{{ currentService.page_h1 }}</h1>
+            </div>
+            {% include 'pages/form.html' %}
+        </section>
+                {% if currentService.servicefeature_set.all %}
+                    <section class="service-feature">
+                     <h3 class="text-center">Почему мы?</h3>
+                        <div class="container-sm service-feature-items">
+                            {% for feature in currentService.servicefeature_set.all %}
+                            <div class="service-feature-item">
+                                <div class="service-feature-item-number">
+                                    <img width="75" src="{{ feature.icon.url }}" alt="">
+                                </div>
+                                <div class="service-feature-item-info">
+                                    <p>{{ feature.name }}</p>
+                                </div>
+                            </div><!--//service-feature-item-->
+                            {% endfor %}
                         </div>
+
+                </section><!--//service-features-->
+            {% endif %}
+        <section class="about">
+            <h3>Клининговая компания "Мистер Клин"</h3>
+            <div class="about-wrapper">
+                <div class="container about-inner">
+                    <div style="width: 450px">
+                        {{ currentService.smallText | safe }}
                     </div>
-                       <p id="review_shortReview" class="mb30">
-                        {{ allComments.first.description }}
-                   </p>
-                </div>
-            </div><!-- //our-help-inner-->
 
-            <div class="our-help-media-slider" id="our-help-media-slider">
-               {% for comment in allComments %}
-                <div class="our-help-media-slide-item"
-                     data-image="{{ comment.image.url }}"
-                     data-writtenby="{{ comment.writtenBy }}"
-                     data-writtenbyavatar="{{ comment.writtenByAvatar.url }}"
-                     data-writtenbyvk="{{ comment.writtenByVk }}"
-                     data-text="{{ comment.description }}"
 
-                     onclick="changeReview(this)">
-                    <div class="our-help-media-slide-image">
-                        <img src="{{ comment.image.url }}" alt="">
-                    </div>
-                </div>
-               {% endfor %}
-            </div>
-
-            <div class="controls" id="customize-controls">
-                 <div class="prev">
-                    <img src="{% static 'img/left-arrow.png' %} " alt="">
-                </div>
-                <div class="next">
-                    <img src="{% static 'img/right-arrow.png' %}" alt="">
                 </div>
             </div>
-        </div>
+        </section>
 
-    </section><!-- // our-help -->
 
-</div><!--//main-->
+
+
+        <section class="our-help not-visible-md">
+            <div class="container ">
+                <h3>Наша работа и отзывы о ней</h3>
+
+                <div class="our-help-inner">
+                    <div id="review_image" class="our-help-media" style="background: url({{ allComments.first.image.url }}) no-repeat center">
+                    </div>
+                    <div class="our-help-info">
+                        <div class="our-help-info-header mb30">
+                            <img id="writtenbyavatar" src="{{ allComments.first.writtenByAvatar.url }}">
+                            <div class="our-help-info-writtenby">
+                                <p id="writtenby">{{ allComments.first.writtenBy }}</p>
+                                <a id="writtenbyvk" href="#">{{ allComments.first.writtenByVk }}</a>
+                            </div>
+                        </div>
+                        <p id="review_shortReview" class="mb30">
+                            {{ allComments.first.description }}
+                        </p>
+                    </div>
+                </div><!-- //our-help-inner-->
+
+                <div class="our-help-media-slider" id="our-help-media-slider">
+                    {% for comment in allComments %}
+                        <div class="our-help-media-slide-item"
+                             data-image="{{ comment.image.url }}"
+                             data-writtenby="{{ comment.writtenBy }}"
+                             data-writtenbyavatar="{{ comment.writtenByAvatar.url }}"
+                             data-writtenbyvk="{{ comment.writtenByVk }}"
+                             data-text="{{ comment.description }}"
+
+                             onclick="changeReview(this)">
+                            <div class="our-help-media-slide-image">
+                                <img src="{{ comment.image.url }}" alt="">
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="controls" id="customize-controls">
+                    <div class="prev">
+                        <img src="{% static 'img/left-arrow.png' %} " alt="">
+                    </div>
+                    <div class="next">
+                        <img src="{% static 'img/right-arrow.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+
+        </section><!-- // our-help -->
+        <section class="seo-text">
+            <div class="container">
+                {{ currentService.pageText | safe }}
+            </div>
+
+        </section>
+
+    </div><!--//main-->
 
 {% endblock %}
 
 {% block js %}
-        {{ block.super }}
- <script src="{% static 'js/tiny-slider.js' %}"></script>
-   <script>
+    {{ block.super }}
+    <script src="{% static 'js/tiny-slider.js' %}"></script>
+    <script>
 
-    function readOurWorkText() {
-        let x = document.getElementById("why-our-work-text")
-        x.classList.toggle('why-our-work-text-active')
-    }
-
-    function readFullReview() {
-        let x = document.getElementById("readfullreview_btn")
-        if (x.innerHTML === "Читать далее...") {
-            x.innerHTML = "Скрыть";
-        } else {
-            x.innerHTML = "Читать далее...";
+        function readOurWorkText() {
+            let x = document.getElementById("why-our-work-text")
+            x.classList.toggle('why-our-work-text-active')
         }
-        document.getElementsByClassName('our-help-inner-full-review')[0].classList.toggle('full-review-active')
+
+        function readFullReview() {
+            let x = document.getElementById("readfullreview_btn")
+            if (x.innerHTML === "Читать далее...") {
+                x.innerHTML = "Скрыть";
+            } else {
+                x.innerHTML = "Читать далее...";
+            }
+            document.getElementsByClassName('our-help-inner-full-review')[0].classList.toggle('full-review-active')
 
 
-    }
-       let review_image=document.getElementById('review_image'), review_title=document.getElementById('review_title'),
+        }
+        let review_image=document.getElementById('review_image'), review_title=document.getElementById('review_title'),
             review_description=document.getElementById('review_description'),
             review_shortReview=document.getElementById('review_shortReview'),
             review_fullReview=document.getElementById('review_fullReview'),
             readfullreview_btn = document.getElementById("readfullreview_btn"),
             full_review_div=document.getElementsByClassName('our-help-inner-full-review')[0]
-    function changeReview(el) {
+        function changeReview(el) {
 
             review_image.style.background = "url('"+el.dataset.image+"') no-repeat center"
             review_title.innerText = el.dataset.title
@@ -133,83 +157,83 @@
             review_shortReview.innerText = el.dataset.shortreview
             review_fullReview.innerHTML = el.dataset.fullreview
 
-    }
+        }
 
 
-    var doc = document
+        var doc = document
 
-    var mobile = 'false',
-        isTestPage = false,
-        isDemoPage = true,
-        classIn = 'jello',
-        classOut = 'rollOut',
-        speed = 400,
-        doc = document,
-        win = window,
-        ww = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth,
-        fw = getFW(ww),
-        initFns = {},
-        sliders = new Object(),
-        edgepadding = 50,
-        gutter = 10;
+        var mobile = 'false',
+            isTestPage = false,
+            isDemoPage = true,
+            classIn = 'jello',
+            classOut = 'rollOut',
+            speed = 400,
+            doc = document,
+            win = window,
+            ww = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth,
+            fw = getFW(ww),
+            initFns = {},
+            sliders = new Object(),
+            edgepadding = 50,
+            gutter = 10;
 
-    function getFW (width) {
-        var sm = 400, md = 900, lg = 1400;
-        return width < sm ? 150 : width >= sm && width < md ? 200 : width >= md && width < lg ? 300 : 400;
-    }
-    window.addEventListener('resize', function() { fw = getFW(ww); });
+        function getFW (width) {
+            var sm = 400, md = 900, lg = 1400;
+            return width < sm ? 150 : width >= sm && width < md ? 200 : width >= md && width < lg ? 300 : 400;
+        }
+        window.addEventListener('resize', function() { fw = getFW(ww); });
 
-    var options = {
-        'our-help-media-slider': {
-            container: '',
-            items: 4,
-            gutter:10,
-            controlsContainer: '#customize-controls',
-            autoplay: true,
-            autoplayTimeout: 4000,
-            speed: 1000,
+        var options = {
+            'our-help-media-slider': {
+                container: '',
+                items: 4,
+                gutter:10,
+                controlsContainer: '#customize-controls',
+                autoplay: true,
+                autoplayTimeout: 4000,
+                speed: 1000,
+
+            }
+
 
         }
 
 
-    }
+
+        for (var i in options) {
+            var item = options[i];
+            item.container = '#' + i;
+            item.swipeAngle = false;
+            if (!item.speed) { item.speed = speed; }
+
+            if (doc.querySelector(item.container)) {
+                sliders[i] = tns(options[i]);
+
+                // call test functions
+                if (isTestPage && initFns[i]) { initFns[i](); }
 
 
-
-    for (var i in options) {
-        var item = options[i];
-        item.container = '#' + i;
-        item.swipeAngle = false;
-        if (!item.speed) { item.speed = speed; }
-
-        if (doc.querySelector(item.container)) {
-            sliders[i] = tns(options[i]);
-
-            // call test functions
-            if (isTestPage && initFns[i]) { initFns[i](); }
-
-
-            // test responsive pages
-        } else if (i.indexOf('responsive') >= 0) {
-            if (isTestPage && initFns[i]) { initFns[i](); }
+                // test responsive pages
+            } else if (i.indexOf('responsive') >= 0) {
+                if (isTestPage && initFns[i]) { initFns[i](); }
+            }
         }
-    }
 
-    // goto
-    if (doc.querySelector('#base_wrapper')) {
-        var goto = doc.querySelector('#base_wrapper .goto-controls'),
-            gotoBtn = goto.querySelector('.button'),
-            gotoInput = goto.querySelector('input');
+        // goto
+        if (doc.querySelector('#base_wrapper')) {
+            var goto = doc.querySelector('#base_wrapper .goto-controls'),
+                gotoBtn = goto.querySelector('.button'),
+                gotoInput = goto.querySelector('input');
 
-        gotoBtn.onclick = function (event) {
-            var index = gotoInput.value;
-            sliders['base'].goTo(index);
-        };
-    }
-
+            gotoBtn.onclick = function (event) {
+                var index = gotoInput.value;
+                sliders['base'].goTo(index);
+            };
+        }
 
 
 
-</script>
+
+    </script>
 
 {% endblock %}

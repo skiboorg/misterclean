@@ -23,7 +23,7 @@ class BlogPost(models.Model):
         slug = slugify(self.name)
         testSlug = BlogPost.objects.filter(name_slug=slug)
         slugRandom = ''
-        if testSlug:
+        if not testSlug:
             slugRandom = '-' + ''.join(choices(string.ascii_lowercase + string.digits, k=2))
         self.name_slug = slug + slugRandom
         self.name_lower = self.name.lower()

@@ -17,14 +17,16 @@ class ServiceName(models.Model):
     price = models.IntegerField('Стоимость услуги без скидки', default=0)
     price1 = models.IntegerField('Скидка свыше 50 кв.м.', default=0)
     price2 = models.IntegerField('Скидка свыше 100 кв.м.', default=0)
-    pageText = RichTextUploadingField('Текст на страницу с услугой', blank=True, null=True)
+    smallText = RichTextUploadingField('Текст на страницу с услугой (отображается вверху страницы) ', blank=True,
+                                      null=True)
+    pageText = RichTextUploadingField('Текст на страницу с услугой (отображается внизу страницы) ', blank=True, null=True)
     isAtHome = models.BooleanField('Отображать на главной?', default=False)
     isInCalc = models.BooleanField('Отображать в калькуляторе?', default=False)
 
 
     def save(self, *args, **kwargs):
         slug = slugify(self.name)
-        if self.name_slug != slug:
+        if not self.name_slug:
             testSlug = ServiceName.objects.filter(name_slug=slug)
             slugRandom = ''
             if testSlug:
@@ -43,7 +45,44 @@ class ServiceName(models.Model):
         verbose_name = "Вид работы"
         verbose_name_plural = "Виды работ"
 
+class ServicePrice(models.Model):
+    service = models.ForeignKey(ServiceName,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Разновидность услуги')
+    name = models.CharField('Название разновидности услуги', max_length=255, blank=False, null=True)
+    info = models.CharField('Описание разновидности услуги', max_length=255, blank=False, null=True)
+    price = models.IntegerField('Стоимость', blank=False, null=True)
 
+    def __str__(self):
+        return 'Pазновидность услуги : {}'.format(self.service.name)
+
+    class Meta:
+        verbose_name = "Pазновидность услуги"
+        verbose_name_plural = "Pазновидности услуг"
+
+class ServiceFeature(models.Model):
+    service = models.ForeignKey(ServiceName,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Приемущества услуги')
+    name = models.CharField('Описание приемущества услуги', max_length=255, blank=False, null=True)
+    icon = models.ImageField('Иконка', upload_to='services_img/', blank=False, null=True)
+
+
+    def __str__(self):
+        return 'Приемущество услуги : {}'.format(self.service.name)
+
+    class Meta:
+        verbose_name = "Приемущество услуги"
+        verbose_name_plural = "Приемущества услуг"
+
+class ServiceImage(models.Model):
+    service = models.ForeignKey(ServiceName,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Фото работ для услуги')
+
+    icon = models.ImageField('Иконка', upload_to='services_img/', blank=False, null=True)
+
+
+    def __str__(self):
+        return 'Фото работ для услуги : {}'.format(self.service.name)
+
+    class Meta:
+        verbose_name = "Фото работ для услуги"
+        verbose_name_plural = "Фото работ для услуги"
 
 class SeoTag(models.Model):
     indexTitle = models.CharField('Тег Title для главной', max_length=255, blank=True, null=True)
