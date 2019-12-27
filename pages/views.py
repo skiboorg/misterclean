@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 # from blog.models import *
 from .models import *
-from comments.models import Comment
+from comments.models import *
 
 def index(request):
     homeactive = 'active'
@@ -96,6 +96,7 @@ def service(request,slug):
     pageDescription = currentService.page_description
     pageKeywords = currentService.page_keywords
     allComments = Comment.objects.filter(service=currentService)
+    allVideoComments = VideoComment.objects.filter(service=currentService)
     return render(request, 'pages/service.html', locals())
 
 

@@ -74,7 +74,7 @@ class ServiceFeature(models.Model):
 class ServiceImage(models.Model):
     service = models.ForeignKey(ServiceName,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Фото работ для услуги')
 
-    icon = models.ImageField('Иконка', upload_to='services_img/', blank=False, null=True)
+    icon = models.ImageField('Фото', upload_to='services_img/', blank=False, null=True)
 
 
     def __str__(self):

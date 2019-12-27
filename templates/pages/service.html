@@ -14,6 +14,7 @@
 {% endblock %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/tiny-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/luminous-basic.min.css' %}">
     {{ block.super }}
 {% endblock %}
 
@@ -28,6 +29,26 @@
             </div>
             {% include 'pages/form.html' %}
         </section>
+     {% if currentService.serviceprice_set.all %}
+    <section  class="service-prices">
+        <div class="container service-prices-inner">
+            <div class="service-prices-inner-big-block">
+                <h5>Наименование</h5>
+                {% for item in currentService.serviceprice_set.all %}
+                    <p>{{ item.name }}<span>{{ item.info }}</span></p>
+                {% endfor %}
+
+            </div>
+            <div class="service-prices-inner-small-block">
+                <h5>Цена</h5>
+                 {% for item in currentService.serviceprice_set.all %}
+                     <p>{{ item.price }} руб</p>
+                {% endfor %}
+            </div>
+
+        </div>
+    </section><!--//service-prices-->
+      {% endif %}
                 {% if currentService.servicefeature_set.all %}
                     <section class="service-feature">
                      <h3 class="text-center">Почему мы?</h3>
@@ -58,8 +79,76 @@
                 </div>
             </div>
         </section>
+ {% if currentService.serviceimage_set.all %}
+      <section class="container about-us-gallery mb-80">
+        <h3 class="section-header mb-80">Фото наших работ</h3>
+        <ul class="gallery-wrapper">
+            {% for image in currentService.serviceimage_set.all %}
+            <li>
+                <a class="gallery-demo" href="{{ image.icon.url }}">
+                    <img width="33%" src="{{ image.icon.url }}" alt="">
+                </a>
+            </li>
+         {% endfor %}
+        </ul>
+    </section>
+{% endif %}
+  <section class="work-process">
+        <div class="container">
+             <h3 class="section-header mb-80">Этапы работ</h3>
+            <div class="work-process-wrapper">
+                <div class="work-process-item">
+                    <picture data-num="01">
+                        <img  src="http://placehold.it/100" alt="">
+                    </picture>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptates!</p>
+                </div>
+                   <div class="work-process-item">
+                    <picture data-num="02">
+                        <img  src="http://placehold.it/100" alt="">
+                    </picture>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptates!</p>
+                </div>
+                   <div class="work-process-item">
+                    <picture data-num="03">
+                        <img  src="http://placehold.it/100" alt="">
+                    </picture>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptates!</p>
+                </div>
+                   <div class="work-process-item">
+                    <picture data-num="04">
+                        <img  src="http://placehold.it/100" alt="">
+                    </picture>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptates!</p>
+                </div>
+                    <div class="work-process-item">
+                    <picture data-num="05">
+                        <img  src="http://placehold.it/100" alt="">
+                    </picture>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptates!</p>
+                </div>
+                    <div class="work-process-item">
+                    <picture data-num="06">
+                        <img  src="http://placehold.it/100" alt="">
+                    </picture>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptates!</p>
+                </div>
+                    <div class="work-process-item">
+                    <picture data-num="07">
+                        <img  src="http://placehold.it/100" alt="">
+                    </picture>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptates!</p>
+                </div>
+                    <div class="work-process-item">
+                    <picture data-num="08" class="no-arrow">
+                        <img  src="http://placehold.it/100" alt="">
+                    </picture>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptates!</p>
+                </div>
 
-
+            </div>
+        </div>
+    </section>
 
 
         <section class="our-help not-visible-md">
@@ -109,8 +198,36 @@
                     </div>
                 </div>
             </div>
-
         </section><!-- // our-help -->
+    {% if allVideoComments %}
+        <section class="video-comments">
+        <div class="container">
+            <div class="video-comments-wrapper">
+                {% for video in allVideoComments %}
+                    <div class="video-comments-item">
+                    <div id="container" style="background: url(https://img.youtube.com/vi/{{ video.url }}/hqdefault.jpg) no-repeat center; background-size: cover">
+                        <button  id="playme" onclick="revealVideo('video{{ forloop.counter }}','youtube')"></button>
+                    </div>
+
+                    <div id="video{{ forloop.counter }}" class="lightbox" onclick="hideVideo('video{{ forloop.counter }}','youtube')" >
+                        <div class="lightbox-container">
+                            <div class="lightbox-content">
+                                <button onclick="hideVideo('video{{ forloop.counter }}','youtube')" class="lightbox-close">
+                                    Закрыть | ✕
+                                </button>
+                                <div class="video-container">
+                                    <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/{{ video.url }}?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- // video-comments-item -->
+                {% endfor %}
+
+            </div>
+        </div>
+    </section><!-- // video-comments -->
+    {% endif %}
         <section class="seo-text">
             <div class="container">
                 {{ currentService.pageText | safe }}
@@ -124,9 +241,26 @@
 
 {% block js %}
     {{ block.super }}
+     <script src="{% static 'js/Luminous.min.js' %}"></script>
+    <script>new LuminousGallery(document.querySelectorAll(".gallery-demo")); </script>
     <script src="{% static 'js/tiny-slider.js' %}"></script>
     <script>
+    // Function to reveal lightbox and adding YouTube autoplay
+    function revealVideo(div,video_id) {
+        var video = document.getElementById(video_id).src;
+        document.getElementById(video_id).src = video+'&autoplay=1'; // adding autoplay to the URL
+        document.getElementById(div).style.display = 'block';
+    }
 
+    // Hiding the lightbox and removing YouTube autoplay
+    function hideVideo(div,video_id) {
+        var video = document.getElementById(video_id).src;
+        var cleaned = video.replace('&autoplay=1',''); // removing autoplay form url
+        document.getElementById(video_id).src = cleaned;
+        document.getElementById(div).style.display = 'none';
+    }
+</script>
+    <script>
         function readOurWorkText() {
             let x = document.getElementById("why-our-work-text")
             x.classList.toggle('why-our-work-text-active')
