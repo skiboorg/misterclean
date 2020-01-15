@@ -68,10 +68,9 @@ class ServicePrice(models.Model):
         verbose_name_plural = "Pазновидности услуг"
 
 class ServiceFeature(models.Model):
-    service = models.ForeignKey(ServiceName,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Приемущества услуги')
+    service = models.ForeignKey(ServiceName,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Приемущества для услуги')
     name = models.CharField('Описание приемущества услуги', max_length=255, blank=False, null=True)
     icon = models.ImageField('Иконка', upload_to='services_img/', blank=False, null=True)
-
 
     def __str__(self):
         return 'Приемущество услуги : {}'.format(self.service.name)
@@ -79,6 +78,20 @@ class ServiceFeature(models.Model):
     class Meta:
         verbose_name = "Приемущество услуги"
         verbose_name_plural = "Приемущества услуг"
+
+
+class ServiceSteps(models.Model):
+    service = models.ForeignKey(ServiceName, blank=False, null=True, on_delete=models.CASCADE,
+                                verbose_name='Этапы работ для услуги')
+    name = models.CharField('Описание этапа работ', max_length=255, blank=False, null=True)
+    icon = models.ImageField('Иконка', upload_to='services_img/', blank=False, null=True)
+
+    def __str__(self):
+        return 'Этап работ для услуги : {}'.format(self.service.name)
+
+    class Meta:
+        verbose_name = "Этап работ"
+        verbose_name_plural = "Этапы работ"
 
 class ServiceImage(models.Model):
     service = models.ForeignKey(ServiceName,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Фото работ для услуги')

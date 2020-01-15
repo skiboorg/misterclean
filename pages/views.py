@@ -88,10 +88,12 @@ def contacts(request):
 
 
 def service(request,slug):
+
     servicesactive = 'active'
     currentService = get_object_or_404(ServiceName, name_slug=slug)
     allServices = ServiceName.objects.all().order_by('order')
     servicesInCalc = allServices.filter(isInCalc=True)
+    all_steps = ServiceSteps.objects.filter(service=currentService)
     pageTitle = currentService.page_title
     pageDescription = currentService.page_description
     pageKeywords = currentService.page_keywords

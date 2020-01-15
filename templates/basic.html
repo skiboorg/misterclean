@@ -12,8 +12,12 @@
     <title>{% block title %}  KOSMOS {% endblock %} </title>
     <meta name="keywords" content="{% block keywords %} keywords {% endblock %}">
     <meta name="description" content="{% block description %} description {% endblock %}"/>
-    {{ seotag.yandexTAG |safe }}
-    {{ seotag.googleTAG |safe }}
+    {% if seotag.yandexTAG %}
+        {{ seotag.yandexTAG |safe }}
+    {% endif %}
+    {% if seotag.googleTAG %}
+        {{ seotag.googleTAG |safe }}
+    {% endif %}
     {% block css %}
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
@@ -57,7 +61,7 @@
             fd.append('userName', document.getElementById(`${type}_name`).value)
             fd.append('userPhone', document.getElementById(`${type}_phone`).value)
             if (addInfo){
-              fd.append('service', service.options[service.selectedIndex].innerText)
+                fd.append('service', service.options[service.selectedIndex].innerText)
                 fd.append('square', square.value)
             }
 
@@ -90,7 +94,7 @@
                 addInfo = true
 
                 if (squareVal < 50){
-                  result.innerText = squareVal * servicePrice
+                    result.innerText = squareVal * servicePrice
                 }
 
                 if (squareVal >= 50 && squareVal < 100 ){
@@ -98,7 +102,7 @@
                 }
 
                 if (squareVal >= 100 ){
-                  result.innerText = squareVal * servicePrice2
+                    result.innerText = squareVal * servicePrice2
                 }
 
             }
