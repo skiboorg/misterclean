@@ -86,7 +86,7 @@
             {% for image in currentService.serviceimage_set.all %}
             <li>
                 <a class="gallery-demo" href="{{ image.icon.url }}">
-                    <img width="33%" src="{{ image.icon.url }}" alt="">
+                    <img style="width: 250px; height: 250px !important;object-fit: cover" src="{{ image.image_small }}" alt="">
                 </a>
             </li>
          {% endfor %}

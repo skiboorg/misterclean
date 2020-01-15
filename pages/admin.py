@@ -12,6 +12,8 @@ class ServicePriceInline (admin.TabularInline):
 
 class ServiceImageInline(admin.TabularInline):
     model = ServiceImage
+    readonly_fields = ('image_tag',)
+    exclude = ('image_small',)
     extra = 0
 
 

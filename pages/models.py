@@ -1,10 +1,19 @@
+import os
+
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.utils.safestring import mark_safe
 from pytils.translit import slugify
 from random import choices
+from PIL import Image
 import string
+import uuid
+
+from misterclean.settings import BASE_DIR
+import misterclean.settings
 
 class ServiceName(models.Model):
+    order = models.IntegerField('Порядковый номер', default=1)
     name = models.CharField('Вид работы', max_length=255, blank=False, null=True)
     image = models.ImageField('Изображение для страницы со всеми услугами (555 x 225)', upload_to='services_img/', blank=True, null=True)
     image_small = models.ImageField('Изображение для главной превью (170 x 170)', upload_to='services_img/', blank=True, null=True)
@@ -75,7 +84,7 @@ class ServiceImage(models.Model):
     service = models.ForeignKey(ServiceName,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Фото работ для услуги')
 
     icon = models.ImageField('Фото', upload_to='services_img/', blank=False, null=True)
-
+    image_small = models.CharField(max_length=255, blank=True, default='')
 
     def __str__(self):
         return 'Фото работ для услуги : {}'.format(self.service.name)
@@ -83,6 +92,35 @@ class ServiceImage(models.Model):
     class Meta:
         verbose_name = "Фото работ для услуги"
         verbose_name_plural = "Фото работ для услуги"
+    def image_tag(self):
+        # used in the admin site model as a "thumbnail"
+        if self.image_small:
+            return mark_safe('<img src="{}" width="150" height="150" style="object-fit:cover" />'.format(self.image_small))
+        else:
+            return mark_safe('<span>НЕТ МИНИАТЮРЫ</span>')
+
+    image_tag.short_description = 'Картинка'
+
+    def save(self, *args, **kwargs):
+        fill_color = '#fff'
+        image = Image.open(self.icon)
+
+
+        if image.mode in ('RGBA', 'LA'):
+            background = Image.new(image.mode[:-1], image.size, fill_color)
+            background.paste(image, image.split()[-1])
+            image = background
+        image.thumbnail((250, 250), Image.ANTIALIAS)
+        small_name = 'media/items/{}/{}'.format(self.service.id, str(uuid.uuid4()) + '.jpg')
+        if misterclean.settings.DEBUG:
+            os.makedirs('media/items/{}'.format(self.service.id), exist_ok=True)
+            image.save(small_name, 'JPEG', quality=90)
+        else:
+            os.makedirs('C:/inetpub/wwwroot/khimiya/media/items/{}'.format(self.service.id), exist_ok=True)
+            image.save('khimiya/' + small_name, 'JPEG', quality=90)
+        self.image_small = '/' + small_name
+
+        super(ServiceImage, self).save(*args, **kwargs)
 
 class SeoTag(models.Model):
     indexTitle = models.CharField('Тег Title для главной', max_length=255, blank=True, null=True)
