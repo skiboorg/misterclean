@@ -6,7 +6,7 @@ from comments.models import *
 
 def index(request):
     homeactive = 'active'
-    allServices = ServiceName.objects.all()
+    allServices = ServiceName.objects.all().order_by('order')
     servicesAtHome = allServices.filter(isAtHome=True)
     servicesInCalc = allServices.filter(isInCalc=True)
     allComments = Comment.objects.all()

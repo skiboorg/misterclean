@@ -163,7 +163,7 @@
                             <img id="writtenbyavatar" src="{{ allComments.first.writtenByAvatar.url }}">
                             <div class="our-help-info-writtenby">
                                 <p id="writtenby">{{ allComments.first.writtenBy }}</p>
-                                <a id="writtenbyvk" href="#">{{ allComments.first.writtenByVk }}</a>
+                                <a id="writtenbyvk" target="_blank" href="{{ allComments.first.writtenByVk }}">{{ allComments.first.writtenByVk }}</a>
                             </div>
                         </div>
                         <p id="review_shortReview" class="mb30">
@@ -202,6 +202,7 @@
     {% if allVideoComments %}
         <section class="video-comments">
         <div class="container">
+         <h3>Видео отзывы</h3>
             <div class="video-comments-wrapper">
                 {% for video in allVideoComments %}
                     <div class="video-comments-item">
@@ -277,21 +278,19 @@
 
 
         }
-        let review_image=document.getElementById('review_image'), review_title=document.getElementById('review_title'),
-            review_description=document.getElementById('review_description'),
-            review_shortReview=document.getElementById('review_shortReview'),
-            review_fullReview=document.getElementById('review_fullReview'),
-            readfullreview_btn = document.getElementById("readfullreview_btn"),
-            full_review_div=document.getElementsByClassName('our-help-inner-full-review')[0]
-        function changeReview(el) {
+          let review_image=document.getElementById('review_image'), writtenbyavatar=document.getElementById('writtenbyavatar'),
+            writtenby=document.getElementById('writtenby'),writtenbyvk=document.getElementById('writtenbyvk'),
+            review_shortReview=document.getElementById('review_shortReview')
+    function changeReview(el) {
 
             review_image.style.background = "url('"+el.dataset.image+"') no-repeat center"
-            review_title.innerText = el.dataset.title
-            review_description.innerText = el.dataset.description
-            review_shortReview.innerText = el.dataset.shortreview
-            review_fullReview.innerHTML = el.dataset.fullreview
+            writtenby.innerText = el.dataset.writtenby
+            writtenbyavatar.innerText = el.dataset.writtenbyavatar
+            writtenbyvk.innerText = el.dataset.writtenbyvk
+            writtenbyvk.setAttribute('href',el.dataset.writtenbyvk)
+            review_shortReview.innerHTML = el.dataset.text
 
-        }
+    }
 
 
         var doc = document
