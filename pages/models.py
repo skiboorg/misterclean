@@ -116,8 +116,8 @@ class ServiceImage(models.Model):
             os.makedirs('media/items/{}'.format(self.service.id), exist_ok=True)
             image.save(small_name, 'JPEG', quality=90)
         else:
-            os.makedirs('C:/inetpub/wwwroot/khimiya/media/items/{}'.format(self.service.id), exist_ok=True)
-            image.save('khimiya/' + small_name, 'JPEG', quality=90)
+            os.makedirs('C:\inetpub\wwwroot\mc\media\items/{}'.format(self.service.id), exist_ok=True)
+            image.save('mc/' + small_name, 'JPEG', quality=90)
         self.image_small = '/' + small_name
 
         super(ServiceImage, self).save(*args, **kwargs)
