@@ -189,8 +189,9 @@
 
             review_image.style.background = "url('"+el.dataset.image+"') no-repeat center"
             writtenby.innerText = el.dataset.writtenby
-            writtenbyavatar.innerText = el.dataset.writtenbyavatar
+            writtenbyavatar.setAttribute('src',el.dataset.writtenbyavatar)
             writtenbyvk.innerText = el.dataset.writtenbyvk
+            writtenbyvk.setAttribute('href',el.dataset.writtenbyvk)
             review_shortReview.innerHTML = el.dataset.text
 
     }

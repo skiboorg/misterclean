@@ -57,7 +57,7 @@ class ServiceName(models.Model):
 class ServicePrice(models.Model):
     service = models.ForeignKey(ServiceName,blank=False,null=True,on_delete=models.CASCADE,verbose_name='Разновидность услуги')
     name = models.CharField('Название разновидности услуги', max_length=255, blank=False, null=True)
-    info = models.CharField('Описание разновидности услуги', max_length=255, blank=False, null=True)
+    info = models.CharField('Описание разновидности услуги', max_length=255, blank=True, null=True)
     price = models.IntegerField('Стоимость', blank=False, null=True)
 
     def __str__(self):

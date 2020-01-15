@@ -93,6 +93,10 @@
         </ul>
     </section>
 {% endif %}
+    <section>
+        <video src="https://vk.com/video4787837_456239057" controls></video>
+    </section>
+    
   <section class="work-process">
         <div class="container">
              <h3 class="section-header mb-80">Этапы работ</h3>
@@ -202,7 +206,7 @@
     {% if allVideoComments %}
         <section class="video-comments">
         <div class="container">
-         <h3>Видео отзывы</h3>
+         <h3 style="text-align: center;margin-bottom: 70px;">Видео отзывы</h3>
             <div class="video-comments-wrapper">
                 {% for video in allVideoComments %}
                     <div class="video-comments-item">
@@ -285,7 +289,7 @@
 
             review_image.style.background = "url('"+el.dataset.image+"') no-repeat center"
             writtenby.innerText = el.dataset.writtenby
-            writtenbyavatar.innerText = el.dataset.writtenbyavatar
+            writtenbyavatar.setAttribute('src',el.dataset.writtenbyavatar)
             writtenbyvk.innerText = el.dataset.writtenbyvk
             writtenbyvk.setAttribute('href',el.dataset.writtenbyvk)
             review_shortReview.innerHTML = el.dataset.text
