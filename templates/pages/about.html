@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-   {{ pageTitle }}
+    {{ pageTitle }}
 {% endblock %}
 
 {% block keywords %}
@@ -21,194 +21,162 @@
 
 {% block content %}
     {% include 'header.html' %}
-  <div class="main">
-    <div class="container">
-        <div class="breadcrumbs">
-            <ul>
-                <li><a href="#">Главная</a></li>
-                <li class="active">Полезные статьи</li>
+    <div class="main">
+        <div class="container">
+            <div class="breadcrumbs">
+                <ul>
+                    <li><a href="#">Главная</a></li>
+                    <li class="active">О нас</li>
+                </ul>
+            </div>
+        </div><!--// breadcrumbs-->
+        <section style="height: 960px" class="about-us">
+            <div class="container about-us-inner">
+                <h1>Клининговая компания<br>Мистер Клин</h1>
+                <p><span style="max-width: 700px">История Клининговой компании Мистер Клин начинается в 2003 году. На тот момент в области не оказывали подобных услуг. Наша компания была первооткрывателем на рынке и открытием для потенциальных потребителей. Мы формировали рынок и спрос с нуля. Путем проб и ошибок выводили оптимальное ценообразование. Благодаря этому опыту мы и по сей день остаемся первыми на рынке клининговых услуг в Челябинске и области.</span>
+                    <span style="max-width: 700px"><strong>Цель компании</strong> — взять на себя часть важных задач, каждого кто обращается к нам за помощью, делаем это профессионально, быстро и качественно. Для того чтоб держать марку мы постоянно повышаем квалификацию наших сотрудников и делаем все возможное чтоб партнерские отношения были долгосрочными.</span>
+                    <span style="max-width: 700px">Долгие партнерские отношения скрадываются и с частными заказчиками и различными организациями по всей челябинской области. В их числе здания банков, офисные здания и помещения, торговые комплексы, заводы и тд. Нас выбирают за то, что мы оказываем полный сперт услуг и стараемся удовлетворить все потребности по уходу и содержанию зданий и помещений в чистоте.</span></p>
+                <div >
+                    <h3 style="font-size: 30px; margin-bottom: 20px;">Основными направлениями нашей<br> деятельности являются:</h3>
+                    <ul>
+                        <li><span>&#10004;</span> ежедневная уборка (обслуживание на контрактной основе);</li>
+                        <li><span>&#10004;</span> генеральная уборка;</li>
+                        <li><span>&#10004;</span> уборка после строительства и ремонта;</li>
+                        <li><span>&#10004;</span> мытье стеклянных поверхностей и фасадов на любой высоте (окон, лоджий, витрин, вывесок);</li>
+                        <li><span>&#10004;</span> химчистку мягкой и кожаной мебели;</li>
+                        <li><span>&#10004;</span> химчистка синтетических и натуральных ковровых покрытий;</li>
+                        <li><span>&#10004;</span> уход за любыми полами ( глубокая чистка, восстановление, нанесение защитных покрытий);</li>
+                        <li><span>&#10004;</span> чистку жалюзи, ламбрекенов, навесных потолков;</li>
+                        <li><span>&#10004;</span> уход за вертикальными поверхностями (удаление пыли со стен, обоев и т. д.);</li>
+                        <li><span>&#10004;</span> уборка прилегающей территории;</li>
+                        <li><span>&#10004;</span> оборудование входных групп грязезащитными элементами;</li>
+                        <li><span>&#10004;</span> аренда грязезащитных ковровых покрытий;</li>
+                        <li><span>&#10004;</span> оборудование туалетных комнат диспенсерами и дозаторами для мыла, полотенцами, туалетной бумагой;</li>
+                        <li><span>&#10004;</span> химчистка матрасов</li>
+                    </ul>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+        <section  class="container">
+            <div style="margin-bottom: 0" class="features" >
+
+                <div class="feature-item text-center">
+                    <p>15</p>
+                    <span>Лет нам доверяют чистоту</span>
+                </div>
+                <div class="feature-item text-center">
+                    <p>2 226</p>
+                    <span>Постоянных клиентов</span>
+                </div>
+                <div class="feature-item text-center">
+                    <p>127 342</p>
+                    <span>Кв. м. убираем ежедневно</span>
+                </div>
+                <div class="feature-item text-center">
+                    <p>17</p>
+                    <span>Наград и премий</span>
+                </div>
+            </div>
+
+        </section>
+
+        <section class="container about-us-gallery mb-80">
+            <h3 class="section-header mb-80">Рекомендации</h3>
+            <ul class="gallery-wrapper">
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/1.jpg' %}">
+                        <img src="{% static 'img/1.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/2.jpg' %}">
+                        <img src="{% static 'img/2.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/3.jpg' %}">
+                        <img src="{% static 'img/3.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/4.jpg' %}">
+                        <img src="{% static 'img/4.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/5.jpg' %}">
+                        <img src="{% static 'img/5.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/6.jpg' %}">
+                        <img src="{% static 'img/6.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/7.jpg' %}">
+                        <img src="{% static 'img/7.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/8.jpg' %}">
+                        <img src="{% static 'img/8.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/9.jpg' %}">
+                        <img src="{% static 'img/9.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/10.jpg' %}">
+                        <img src="{% static 'img/10.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/11.jpg' %}">
+                        <img src="{% static 'img/11.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+
+
             </ul>
-        </div>
-    </div><!--// breadcrumbs-->
-    <section class="about-us">
-        <div class="container about-us-inner">
-            <h1>О нас</h1>
-            <p><span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ab aperiam, blanditiis deserunt, eaque eos excepturi illo incidunt iste laboriosam neque officia quae quaerat repudiandae sapiente similique, sit ullam vitae!</span><span>Delectus ea modi, omnis perspiciatis quos rem repudiandae sequi. Architecto aut, beatae commodi, consequuntur cum error exercitationem facere ipsum laborum non, odit porro provident reprehenderit vel velit! Dolorem, similique suscipit!</span><span>Corporis, cum eaque est fuga fugiat ipsa maiores minima quos similique unde? Dolores eligendi et mollitia nobis porro sed voluptates voluptatum! Consequatur culpa, ex facere necessitatibus nostrum pariatur quod voluptatem.</span></p>
+        </section>
 
 
-
-        </div>
-
-
-    </section>
-    <section class="container">
-         <div class="features" >
-
-            <div class="feature-item text-center">
-                <p>15</p>
-                <span>Лет нам доверяют чистоту</span>
-            </div>
-            <div class="feature-item text-center">
-                <p>2,226</p>
-                <span>Постоянных клиентов</span>
-            </div>
-            <div class="feature-item text-center">
-                <p>127,342</p>
-                <span>Кв. м. убираем ежедневно</span>
-            </div>
-               <div class="feature-item text-center">
-                <p>17</p>
-                <span>Наград и премий</span>
-            </div>
-        </div>
-
-    </section>
-
-    <section class="container about-us-gallery mb-80">
-        <h3 class="section-header mb-80">Рекомендации</h3>
-        <ul class="gallery-wrapper">
-            <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-            <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-
-        </ul>
-    </section>
+        <section class="container about-us-gallery mb-80">
+            <h3 class="section-header mb-80">Сертификаты</h3>
+            <ul class="gallery-wrapper">
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/s1.jpg' %}">
+                        <img src="{% static 'img/s1.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
+                <li>
+                    <a class="gallery-demo" href="{% static 'img/s2.jpg' %}">
+                        <img src="{% static 'img/s2.jpg' %}" alt="Coyote">
+                    </a>
+                </li>
 
 
-  <section class="container about-us-gallery mb-80">
-        <h3 class="section-header mb-80">Сертификаты</h3>
-        <ul class="gallery-wrapper">
-            <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-            <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
-             <li>
-                <a class="gallery-demo" href="{% static 'img/gall.png' %}">
-                    <img src="{% static 'img/gall.png' %}" alt="Coyote">
-                </a>
-            </li>
+            </ul>
+        </section>
 
-        </ul>
-    </section>
-
-  <section style="max-width: 800px" class="container calculator-form">
-        {% include 'pages/form.html' %}
-    </section>
-</div><!--//main-->
+        <section style="max-width: 800px" class="container calculator-form">
+            {% include 'pages/form.html' %}
+        </section>
+    </div><!--//main-->
 
 {% endblock %}
 
 {% block js %}
     <script src="{% static 'js/Luminous.min.js' %}"></script>
-        {{ block.super }}
+    {{ block.super }}
     <script>
         new LuminousGallery(document.querySelectorAll(".gallery-demo"));
     </script>

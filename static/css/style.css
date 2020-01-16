@@ -1162,17 +1162,17 @@ select:focus {
   height: 780px;
 }
 
-.about-us-inner p {
+.about-us-inner p, li {
   font-family: "Gotham Regular", sans-serif;
   font-size: 16px;
   color: #1f1f1f;
   letter-spacing: .1px;
-  max-width: 585px;
+
 }
 
 .about-us-inner p span {
   display: block;
-  margin-bottom: 35px;
+  margin-bottom: 20px;
 }
 
 .gallery-wrapper {
