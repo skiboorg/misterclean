@@ -35,7 +35,7 @@
                     <div class="service-prices-inner-big-block">
                         <h5>Наименование</h5>
                         {% for item in currentService.serviceprice_set.all %}
-                            <p>{{ item.name }}<span>{{ item.info }}</span></p>
+                            <p style="flex-direction: column; align-items: flex-start;justify-content: center"> {{ item.name }} {% if item.info %}<span >{{ item.info }}</span>{% endif %}</p>
                         {% endfor %}
 
                     </div>
@@ -103,7 +103,7 @@
                             <picture data-num="0{{ forloop.counter }}" {% if forloop.last %}class="no-arrow"{% endif %}>
                                 <img width="100" height="100" src="{{ step.icon.url }}" alt="">
                             </picture>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, voluptates!</p>
+                            <p>{{ step.name }}</p>
                         </div>
                         {% endfor %}
                     </div>
