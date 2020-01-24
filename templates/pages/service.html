@@ -56,7 +56,7 @@
                     {% for feature in currentService.servicefeature_set.all %}
                         <div class="service-feature-item">
                             <div class="service-feature-item-number">
-                                <img width="75" src="{{ feature.icon.url }}" alt="">
+                                <img width="75" src="{{ feature.icon.url }}" alt="{{ feature.name }}">
                             </div>
                             <div class="service-feature-item-info">
                                 <p>{{ feature.name }}</p>
@@ -86,14 +86,14 @@
                     {% for image in currentService.serviceimage_set.all %}
                         <li>
                             <a class="gallery-demo" href="{{ image.icon.url }}">
-                                <img style="width: 250px; height: 250px !important;object-fit: cover" src="{{ image.image_small }}" alt="">
+                                <img style="width: 250px; height: 250px !important;object-fit: cover" src="{{ image.image_small }}" alt="Фото наших работ">
                             </a>
                         </li>
                     {% endfor %}
                 </ul>
             </section>
         {% endif %}
-
+        {% if currentService.name_slug == 'generalnaya-uborka' %}
              <section class="video-comments">
                 <div class="container">
                     <h3 style="text-align: center;margin-bottom: 70px;">Наши видео</h3>
@@ -122,6 +122,7 @@
                     </div>
                 </div>
             </section><!-- // video-comments -->
+        {% endif %}
         {% if all_steps %}
             <section class="work-process">
                 <div class="container">
@@ -130,7 +131,7 @@
                         {% for step in all_steps %}
                             <div class="work-process-item">
                             <picture data-num="{% if forloop.counter < 10 %}0{% endif %}{{ forloop.counter }}" {% if forloop.last %}class="no-arrow"{% endif %}>
-                                <img width="100" height="100" src="{{ step.icon.url }}" alt="">
+                                <img width="100" height="100" src="{{ step.icon.url }}" alt="{{ step.name }}">
                             </picture>
                             <p>{{ step.name }}</p>
                         </div>
@@ -141,8 +142,8 @@
         {% endif %}
 
 
-
-        <section class="our-help not-visible-md">
+        {% if allComments %}
+            <section class="our-help not-visible-md">
             <div class="container ">
                 <h3>Наша работа и отзывы о ней</h3>
 
@@ -174,7 +175,7 @@
 
                              onclick="changeReview(this)">
                             <div class="our-help-media-slide-image">
-                                <img src="{{ comment.image.url }}" alt="">
+                                <img src="{{ comment.image.url }}" alt="Наша работа и отзывы о ней">
                             </div>
                         </div>
                     {% endfor %}
@@ -190,6 +191,7 @@
                 </div>
             </div>
         </section><!-- // our-help -->
+        {% endif %}
         {% if allVideoComments %}
             <section class="video-comments">
                 <div class="container">

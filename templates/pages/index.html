@@ -59,7 +59,7 @@
                 {% for service in servicesAtHome %}
                     <div class="services-item">
                     <a href="{% url 'service' service.name_slug %}">
-                         <img style="border-radius: 50%" src="{{ service.image_small.url }}" alt="">
+                         <img style="border-radius: 50%" src="{{ service.image_small.url }}" alt="{{ service.name }}">
                         <p>{{ service.name }}</p>
                     </a>
                 </div>
