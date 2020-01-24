@@ -103,5 +103,5 @@ def service(request,slug):
 
 
 def robots(request):
-    robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: http://www.buhkosmos174.ru/\nSitemap: http://www.buhkosmos174.ru/sitemap.xml"
+    robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: https://www.misterclean.ru/\nSitemap: https://www.misterclean.ru/sitemap.xml"
     return HttpResponse(robotsTxt, content_type="text/plain")

@@ -93,6 +93,35 @@
                 </ul>
             </section>
         {% endif %}
+
+             <section class="video-comments">
+                <div class="container">
+                    <h3 style="text-align: center;margin-bottom: 70px;">Наши видео</h3>
+                    <div class="video-comments-wrapper">
+
+                            <div class="video-comments-item">
+                                <div id="container" style="background: url(https://img.youtube.com/vi/jzEpEyslcu4/hqdefault.jpg) no-repeat center; box-shadow: none">
+                                    <button  id="playme" onclick="revealVideo('video00','youtube')"></button>
+                                </div>
+
+                                <div id="video00" class="lightbox" onclick="hideVideo('video00','youtube')" >
+                                    <div class="lightbox-container">
+                                        <div class="lightbox-content">
+                                            <button onclick="hideVideo('video00','youtube')" class="lightbox-close">
+                                                Закрыть | ✕
+                                            </button>
+                                            <div class="video-container">
+                                                <iframe id="youtube" width="960" height="540" src="https://www.youtube.com/embed/jzEpEyslcu4?showinfo=0" frameborder="0" allowfullscreen></iframe>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- // video-comments-item -->
+
+
+                    </div>
+                </div>
+            </section><!-- // video-comments -->
         {% if all_steps %}
             <section class="work-process">
                 <div class="container">
