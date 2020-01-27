@@ -74,7 +74,7 @@ input,select
 .form
   &-wrapper
     display: grid
-    grid-template-columns: repeat(3,1fr)
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr))
     grid-gap: 30px
     margin-bottom: 40px
   &-result
@@ -129,7 +129,10 @@ input,select
     font-family: $f-GR
     font-size: 24px
 
-@media (max-width: 425px)
+@media (max-width: 590px)
+  .form
+    &-wrapper
+      margin-bottom: 0
   .section-header
     h3
       font-size: 20px
@@ -249,7 +252,13 @@ input,select
     left: 0
     transition: left 0.3s ease-in
 
-@media (max-width: 425px)
+@media (max-width: 590px)
+  .section-header
+    font-size: 20px !important
+    line-height: 25px
+    margin-bottom: 15px
+  .text-center
+    margin: 0
   .hidden-mobile
     display: none !important
   section
@@ -396,6 +405,9 @@ input,select
       color: $color-text-d-grey
       text-align: center
 
+@media (max-width: 590px)
+  .features
+    margin-bottom: 40px
 .mb-80
   margin-bottom: 80px
 .text-center
@@ -411,3 +423,9 @@ input,select
     margin: 15px 0
   p
     margin-bottom: 15px
+
+  ul
+    margin-bottom: 15px
+    li
+      list-style: square
+      margin-left: 20px

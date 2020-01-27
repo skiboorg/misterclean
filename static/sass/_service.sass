@@ -36,6 +36,8 @@
       color: $color-text-d-grey
       padding: 25px 0 25px 40px
       border-bottom: 1px solid $color-border
+      span
+        display: none
     p
       font-family: $f-GR
       font-size: 16px
@@ -51,6 +53,9 @@
         font-size: 14px
         color: rgba(41, 41, 41, 0.84)
         margin-top: 5px
+      b
+        display: none
+        margin-top: 10px
       &:last-child
         border-bottom: none
         padding-top: 25px
@@ -73,6 +78,25 @@
       flex-basis: 35%
       flex-grow: 1
 
+@media (max-width: 590px)
+  .service-prices
+
+    &-inner
+      h5
+        padding: 20px 10px
+        font-size: 18px
+        span
+          display: inline-block
+      p
+        padding: 10px
+        span
+          margin-top: 10px
+        b
+          display: block
+      &-big-block
+        padding: 10px
+      &-small-block
+        display: none
 .service-feature
   margin-bottom: 140px
   &-items
@@ -110,7 +134,12 @@
         font-size: 16px
         color: $color-text-m-grey
 
-@media (max-width: 425px)
+@media (max-width: 590px)
+  .services
+    h3
+      font-size: 20px !important
+      line-height: 25px
+      margin-bottom: 15px
   .service-feature
     &-item
       flex-basis: 100%
@@ -219,6 +248,23 @@
 
 .no-arrow::after
   content: none !important
+
+@media (max-width: 590px)
+  .work-process
+    &-item
+      picture
+        &::after
+          content: none
+        &::before
+          content: none
+        img
+          margin: 0 auto
+          margin-bottom: 10px
+      p
+        text-align: center
+
+
+
 
 .lightbox
   background-color: rgba(0, 0, 0, 0.31)
