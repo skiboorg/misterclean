@@ -2321,6 +2321,10 @@ select:focus {
     padding: 15px 25px;
   }
 
+  .header-phone p {
+    margin: 0;
+  }
+
   .header-phone a {
     display: none;
   }
