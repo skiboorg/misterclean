@@ -11,7 +11,7 @@ urlpatterns = [
    # path('post/<slug>/', views.showPost, name='showpost'),
    path('about/', views.about, name='about'),
    path('contacts/', views.contacts, name='contacts'),
-   path('services/', views.services, name='services'),
+   path('service/', views.services, name='services'),
    path('service/<slug>/', views.service, name='service'),
    path('robots.txt', views.robots, name='robots'),
 

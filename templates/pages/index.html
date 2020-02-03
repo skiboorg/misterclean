@@ -83,24 +83,14 @@
          <h3>Наши клиенты</h3>
         <div class="container">
                  <div class="clients-slider" id="clients-slider">
-                    <div class="clients-slider-item">
-                        <img src="{% static 'img/client.png' %} " alt="">
-                    </div>
-                      <div class="clients-slider-item">
-                        <img src="{% static 'img/client.png' %} " alt="">
-                    </div>
-                      <div class="clients-slider-item">
-                        <img src="{% static 'img/client.png' %} " alt="">
-                    </div>
-                      <div class="clients-slider-item">
-                        <img src="{% static 'img/client.png' %} " alt="">
-                    </div>
-                      <div class="clients-slider-item">
-                        <img src="{% static 'img/client.png' %} " alt="">
-                    </div>
-                      <div class="clients-slider-item">
-                        <img src="{% static 'img/client.png' %} " alt="">
-                    </div>
+                     {% for i in num %}
+                         <div class="clients-slider-item">
+                                            <img src="/static/img/clients/{{ i }}.jpg " alt="">
+                                        </div>
+                    {% endfor %}
+
+
+
 
             </div>
             <div class="controls" id="clients-slider-controls">

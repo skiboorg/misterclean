@@ -10,6 +10,7 @@ def index(request):
     servicesAtHome = allServices.filter(isAtHome=True)
     servicesInCalc = allServices.filter(isInCalc=True)
     allComments = Comment.objects.all()
+    num = range(25)
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.indexTitle

@@ -88,7 +88,7 @@
                     {% for image in currentService.serviceimage_set.all %}
                         <li>
                             <a class="gallery-demo" href="{{ image.icon.url }}">
-                                <img style="width: 250px; height: 250px !important;object-fit: cover" src="{{ image.image_small }}" alt="Фото наших работ">
+                                <img style="width: 250px; height: 250px !important;object-fit: cover" src="{{ image.image_small }}" alt="{{ currentService.page_h1 }}">
                             </a>
                         </li>
                     {% endfor %}
@@ -226,6 +226,7 @@
         {% endif %}
         <section class="seo-text">
             <div class="container">
+                  <h3 class="section-header mb-80">Подробнее</h3>
                 {{ currentService.pageText | safe }}
             </div>
 
