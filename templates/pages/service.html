@@ -36,7 +36,7 @@
                         <h5>Наименование<span>/Цена</span></h5>
                         {% for item in currentService.serviceprice_set.all %}
                             <p style="flex-direction: column; align-items: flex-start;justify-content: center"> {{ item.name }} {% if item.info %}<span >{{ item.info }}</span>{% endif %}
-                            <b>от {{ item.price }} руб</b>
+                            <b>от {{ item.price }} &#8381;</b>
                             </p>
                         {% endfor %}
 
@@ -44,7 +44,7 @@
                     <div class="service-prices-inner-small-block">
                         <h5>Цена</h5>
                         {% for item in currentService.serviceprice_set.all %}
-                            <p>{{ item.price }} руб</p>
+                            <p>от {{ item.price }} &#8381;</p>
                         {% endfor %}
                     </div>
 
