@@ -654,7 +654,6 @@ select:focus {
 
 .form-header-small {
   font: 16px "Gotham Regular", sans-serif;
-  line-height: 24px;
   margin-bottom: 40px;
 }
 
@@ -1672,14 +1671,9 @@ select:focus {
 }
 
 .contacts-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 20px;
 }
 
 .contacts-work-time {
@@ -1696,8 +1690,27 @@ select:focus {
   padding: 20px 40px;
 }
 
-.contacts-phones {
-  width: 450px;
+.contacts-adress-header {
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.contacts-adress-header p {
+  position: relative;
+  font-family: 'MuseoSansCyrl-500',sans-serif;
+  font-size: 24px;
+  display: inline-block;
+}
+
+.contacts-adress-header p:before {
+  position: absolute;
+  content: url(../img/contacts-pin.png);
+  bottom: 45px;
+  left: 37%;
+}
+
+.contacts-mail {
+  text-align: center;
 }
 
 .contacts-phones-header {
@@ -1721,7 +1734,6 @@ select:focus {
 
 .contacts-mail {
   text-align: center;
-  width: 450px;
 }
 
 .contacts-mail-header {
@@ -1740,10 +1752,6 @@ select:focus {
   content: url(../img/contacts-mail.png);
   bottom: 45px;
   left: 22%;
-}
-
-.contacts-mail-info {
-  border-bottom: 1px solid #bebebe;
 }
 
 .contacts-mail-info p {
@@ -1918,7 +1926,6 @@ select:focus {
   color: #1f1f1f;
   letter-spacing: 0;
   max-width: 450px;
-  line-height: 26px;
 }
 
 .about-inner p span {
@@ -2251,7 +2258,7 @@ select:focus {
   }
 
   .section-header h3 {
-    font-size: 20px;
+    font-size: 30px;
   }
 
   .section-header p {
@@ -2259,9 +2266,9 @@ select:focus {
   }
 
   .section-header {
-    font-size: 20px !important;
+    font-size: 30px !important;
     line-height: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 
   .text-center {
@@ -2297,8 +2304,9 @@ select:focus {
   }
 
   .header-inner h1 {
-    font-size: 20px;
+    font-size: 30px;
     line-height: 25px;
+    margin: 10px 0;
   }
 
   .header-inner a {
@@ -2366,9 +2374,9 @@ select:focus {
   }
 
   .services h3 {
-    font-size: 20px !important;
+    font-size: 30px !important;
     line-height: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 
   .service-feature-item {
@@ -2422,7 +2430,7 @@ select:focus {
   }
 
   .about h3 {
-    font-size: 20px !important;
+    font-size: 30px !important;
     line-height: 25px;
     margin-bottom: 15px;
   }
@@ -2435,14 +2443,18 @@ select:focus {
   }
 
   .our-clients h3 {
-    font-size: 20px !important;
+    font-size: 30px !important;
     line-height: 25px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
   }
 }
 
 @media (max-width: 575px) {
   .contacts-phones {
+    margin-bottom: 130px;
+  }
+
+  .contacts-mail {
     margin-bottom: 130px;
   }
 }

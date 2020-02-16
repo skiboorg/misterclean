@@ -7,9 +7,9 @@
   margin-bottom: 60px
 
 .contacts-wrapper
-  display: flex
-  flex-wrap: wrap
-  justify-content: space-between
+  display: grid
+  grid-template-columns: repeat(auto-fill,minmax(320px,1fr))
+  grid-gap: 20px
 
 .contacts-work-time
   margin-bottom: 130px
@@ -21,7 +21,24 @@
   a
     padding: 20px 40px
 .contacts-phones
-  width: 450px
+
+
+.contacts-adress-header
+  margin-bottom: 60px
+  text-align: center
+  p
+    position: relative
+    font-family: 'MuseoSansCyrl-500',sans-serif
+    font-size: 24px
+    display: inline-block
+    &:before
+      position: absolute
+      content: url(../img/contacts-pin.png)
+      bottom: 45px
+      left: 37%
+.contacts-mail
+  text-align: center
+
 
 .contacts-phones-header
   margin-bottom: 60px
@@ -38,7 +55,7 @@
       left: 37%
 .contacts-mail
   text-align: center
-  width: 450px
+
 .contacts-mail-header
   margin-bottom: 60px
   p
@@ -52,7 +69,6 @@
       bottom: 45px
       left: 22%
 .contacts-mail-info
-  border-bottom: 1px solid #bebebe
 
   p
     font-family: 'MuseoSansCyrl-100',sans-serif
@@ -91,4 +107,6 @@
 
 @media (max-width: 575px)
   .contacts-phones
+    margin-bottom: 130px
+  .contacts-mail
     margin-bottom: 130px
