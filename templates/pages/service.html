@@ -153,26 +153,29 @@
             <div class="container ">
                 <h3>Наша работа и отзывы о ней</h3>
 
-                <div class="our-help-inner">
-                    <div id="review_image" class="our-help-media" style="background: url({{ allComments.first.image.url }}) no-repeat center">
-                    </div>
-                    <div class="our-help-info">
-                        <div class="our-help-info-header mb30">
-                            <img id="writtenbyavatar" src="{{ allComments.first.writtenByAvatar.url }}">
-                            <div class="our-help-info-writtenby">
-                                <p id="writtenby">{{ allComments.first.writtenBy }}</p>
-                                <a id="writtenbyvk" target="_blank" href="{{ allComments.first.writtenByVk }}">{{ allComments.first.writtenByVk }}</a>
-                            </div>
-                        </div>
-                        <p id="review_shortReview" class="mb30">
-                            {{ allComments.first.description }}
-                        </p>
-                    </div>
-                </div><!-- //our-help-inner-->
+
 
                 <div class="our-help-media-slider" id="our-help-media-slider">
                     {% for comment in allComments %}
-                        <div class="our-help-media-slide-item"
+                          <div class="slider-itemm">
+                    <div class="our-help-inner">
+                <div id="review_image" class="our-help-media" style="background: url({{ comment.image.url }}) no-repeat center">
+                </div>
+                  <div class="our-help-info">
+                    <div class="our-help-info-header mb30">
+                       <img id="writtenbyavatar" src="{{ comment.writtenByAvatar.url }}">
+                        <div class="our-help-info-writtenby">
+                            <p id="writtenby">{{ comment.writtenBy }}</p>
+                            <a id="writtenbyvk" href="#">{{ comment.writtenByVk }}</a>
+                        </div>
+                    </div>
+                       <p id="review_shortReview" class="mb30">
+                        {{ comment.description }}
+                   </p>
+                </div>
+            </div><!-- //our-help-inner-->
+                   </div>
+                   {% comment %}     <div class="our-help-media-slide-item"
                              data-image="{{ comment.image.url }}"
                              data-writtenby="{{ comment.writtenBy }}"
                              data-writtenbyavatar="{{ comment.writtenByAvatar.url }}"
@@ -183,18 +186,18 @@
                             <div class="our-help-media-slide-image">
                                 <img src="{{ comment.image.url }}" alt="Наша работа и отзывы о ней">
                             </div>
-                        </div>
+                        </div>{% endcomment %}
                     {% endfor %}
                 </div>
 
-                <div class="controls" id="customize-controls">
-                    <div class="prev">
-                        <img src="{% static 'img/left-arrow.png' %} " alt="">
-                    </div>
-                    <div class="next">
-                        <img src="{% static 'img/right-arrow.png' %}" alt="">
-                    </div>
+                 <div class="controls" id="customize-controls">
+                 <div style="bottom: 300px" class="prev">
+                    <img class="our-help-prev"  src="{% static 'img/left-arrow.png' %} " alt="">
                 </div>
+                <div style="bottom: 300px" class="next">
+                    <img class="our-help-next" src="{% static 'img/right-arrow.png' %}" alt="">
+                </div>
+            </div>
             </div>
         </section><!-- // our-help -->
         {% endif %}
@@ -293,77 +296,16 @@
         }
 
 
-        var doc = document
-
-        var mobile = 'false',
-            isTestPage = false,
-            isDemoPage = true,
-            classIn = 'jello',
-            classOut = 'rollOut',
-            speed = 400,
-            doc = document,
-            win = window,
-            ww = win.innerWidth || doc.documentElement.clientWidth || doc.body.clientWidth,
-            fw = getFW(ww),
-            initFns = {},
-            sliders = new Object(),
-            edgepadding = 50,
-            gutter = 10;
-
-        function getFW (width) {
-            var sm = 400, md = 900, lg = 1400;
-            return width < sm ? 150 : width >= sm && width < md ? 200 : width >= md && width < lg ? 300 : 400;
-        }
-        window.addEventListener('resize', function() { fw = getFW(ww); });
-
-        var options = {
-            'our-help-media-slider': {
-                container: '',
-                items: 4,
-                gutter:10,
-                controlsContainer: '#customize-controls',
-                autoplay: true,
-                autoplayTimeout: 4000,
-                speed: 1000,
-
-            }
-
-
-        }
-
-
-
-        for (var i in options) {
-            var item = options[i];
-            item.container = '#' + i;
-            item.swipeAngle = false;
-            if (!item.speed) { item.speed = speed; }
-
-            if (doc.querySelector(item.container)) {
-                sliders[i] = tns(options[i]);
-
-                // call test functions
-                if (isTestPage && initFns[i]) { initFns[i](); }
-
-
-                // test responsive pages
-            } else if (i.indexOf('responsive') >= 0) {
-                if (isTestPage && initFns[i]) { initFns[i](); }
-            }
-        }
-
-        // goto
-        if (doc.querySelector('#base_wrapper')) {
-            var goto = doc.querySelector('#base_wrapper .goto-controls'),
-                gotoBtn = goto.querySelector('.button'),
-                gotoInput = goto.querySelector('input');
-
-            gotoBtn.onclick = function (event) {
-                var index = gotoInput.value;
-                sliders['base'].goTo(index);
-            };
-        }
-
+       var slider = tns({
+        container: '.our-help-media-slider',
+         items: 1,
+        gutter:50,
+        controlsContainer: '#customize-controls',
+        autoplay: false,
+        autoplayTimeout: 4000,
+        speed: 1000,
+        mouseDrag:true,
+    });
 
 
 
