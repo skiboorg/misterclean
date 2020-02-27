@@ -565,6 +565,12 @@ select:focus {
   font-family: "Gotham Regular", sans-serif;
   font-size: 16px;
   color: #292929;
+  line-height: 21px;
+  margin-bottom: 10px;
+}
+
+.about-us-inner ol li:last-child {
+  margin-bottom: 0;
 }
 
 .about-us-inner h2 {
@@ -655,6 +661,7 @@ select:focus {
 .form-header-small {
   font: 16px "Gotham Regular", sans-serif;
   margin-bottom: 40px;
+  line-height: 21px;
 }
 
 .custom-checkbox {
@@ -779,6 +786,7 @@ select:focus {
 
 .seo-text p {
   margin-bottom: 15px;
+  line-height: 21px;
 }
 
 .seo-text ul {
@@ -788,6 +796,11 @@ select:focus {
 .seo-text ul li {
   list-style: square;
   margin-left: 20px;
+  margin-bottom: 10px;
+}
+
+.seo-text ul li:last-child {
+  margin-bottom: 0;
 }
 
 .header.header-no-bg {
@@ -1046,6 +1059,7 @@ select:focus {
   position: relative;
   font: 16px "Gotham Regular", sans-serif;
   color: #1f1f1f;
+  line-height: 21px;
 }
 
 .our-help-info p:last-child:after {
@@ -1176,11 +1190,16 @@ select:focus {
   color: #1f1f1f;
   letter-spacing: .1px;
   max-width: 585px;
+  line-height: 21px;
 }
 
 .about-us-inner p span {
   display: block;
   margin-bottom: 35px;
+}
+
+.about-us-inner ul li {
+  margin-bottom: 10px;
 }
 
 .gallery-wrapper {
@@ -1365,6 +1384,7 @@ select:focus {
   max-width: 225px;
   font-family: "Gotham Regular", sans-serif;
   font-size: 16px;
+  line-height: 21px;
   color: #292929;
 }
 
@@ -1450,6 +1470,10 @@ select:focus {
   display: grid;
   grid-gap: 35px;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+.work-process-item p {
+  line-height: 21px;
 }
 
 .work-process-item picture {
@@ -1925,6 +1949,7 @@ select:focus {
   font: 16px "Gotham Regular", sans-serif;
   color: #1f1f1f;
   letter-spacing: 0;
+  line-height: 21px;
   max-width: 450px;
 }
 
@@ -2273,6 +2298,7 @@ select:focus {
 
   .text-center {
     margin: 0;
+    font-size: 30px !important;
   }
 
   .hidden-mobile {
@@ -2281,6 +2307,10 @@ select:focus {
 
   section {
     margin-bottom: 40px !important;
+  }
+
+  .form-header {
+    font-size: 25px !important;
   }
 
   .features {

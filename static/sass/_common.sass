@@ -259,6 +259,7 @@ input,select
     margin-bottom: 20px
   .text-center
     margin: 0
+    font-size: 30px !important
   .hidden-mobile
     display: none !important
   section
@@ -272,6 +273,10 @@ input,select
       font-family: $f-GR
       font-size: 16px
       color: $color-text-m-grey
+      line-height: 21px
+      margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0
   h2
     font-family: $f-GB
     font-size: 20px
@@ -322,6 +327,7 @@ input,select
   &-small
     font: 16px $f-GR
     margin-bottom: 40px
+    line-height: 21px
 
 
 .custom-checkbox
@@ -405,6 +411,8 @@ input,select
       text-align: center
 
 @media (max-width: 590px)
+  .form-header
+    font-size: 25px !important
   .features
     margin-bottom: 40px
 .mb-80
@@ -422,9 +430,13 @@ input,select
     margin: 15px 0
   p
     margin-bottom: 15px
+    line-height: 21px
 
   ul
     margin-bottom: 15px
     li
       list-style: square
       margin-left: 20px
+      margin-bottom: 10px
+      &:last-child
+        margin-bottom: 0

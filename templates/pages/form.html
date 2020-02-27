@@ -6,9 +6,11 @@
                         <div class="form-group">
                             <label for="service">Выберите услугу</label>
                             <select id="service" onchange="calculate()">
-                                    <option selected disabled></option>
+
+
                                   {% for service in servicesInCalc %}
-                                    <option
+
+                                    <option {% if currentService.name_slug == service.name_slug %}selected{% endif %}
                                             data-price="{{ service.price }}"
                                             data-price1="{% if service.price1 %}  {{ service.price1 }} {% else %}  {{ service.price }} {% endif %}"
                                             data-price2="{% if service.price2 %}  {{ service.price2 }} {% else %}  {{ service.price }} {% endif %}"
