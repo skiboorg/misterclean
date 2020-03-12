@@ -12,6 +12,7 @@
     <title>{% block title %}  KOSMOS {% endblock %} </title>
     <meta name="keywords" content="{% block keywords %} keywords {% endblock %}">
     <meta name="description" content="{% block description %} description {% endblock %}"/>
+ <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     {% if seotag.yandexTAG %}
         {{ seotag.yandexTAG |safe }}
     {% endif %}
@@ -52,6 +53,12 @@
         }
 
         function sendForm(type) {
+            if (! document.getElementById('personal_check').checked && type === 'form'){
+                return
+            }
+             if (! document.getElementById('personal_check1').checked && type === 'modal'){
+                return
+            }
             document.getElementById(`${type}_name`).classList.remove('error-field')
             document.getElementById(`${type}_phone`).classList.remove('error-field')
             console.log('send')

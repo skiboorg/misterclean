@@ -1,5 +1,7 @@
 {% load static %}
 <section class="map">
+        <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A7c17347226f152166fbbad03d674dc556aacf5f6c81c1a53430bfc7cc4f8c257&amp;width=100%25&amp;height=600&amp;lang=ru_RU&amp;scroll=true"></script>
+
     <div class="container map-inner">
         <div class="shadow-box">
             <div id="form_content" class="shadow-box-inner">
@@ -8,8 +10,8 @@
                 <input class="input_style-2" type="text" id="form_name" placeholder="Как к Вам обращаться?">
                 <input type="tel" id="form_phone"  class="input_style-2 masked-phone" placeholder="Ваш сотовый номер" data-phonemask="+7(___)___-__-__" />
                 <a   class="btn" onclick="sendForm('form')">Перезвоните мне</a>
-                <label class="custom-checkbox"><span>Даю согласие на обработку моих персональных данных</span>
-                    <input name="personal" checked required type="checkbox">
+                <label class="custom-checkbox"><span>Даю согласие на обработку моих <a style="color: #3973c5;text-decoration: underline" href="{% url 'policy' %}">персональных данных</a></span>
+                    <input id="personal_check" name="personal"  required type="checkbox">
                     <span class="checkmark"></span>
                 </label>
                 <input style="display: none" name="agree" type="checkbox">
@@ -75,10 +77,10 @@
                     <input class="input_style-2" type="text" id="modal_name" placeholder="Как к Вам обращаться?">
                     <input class="input_style-2 masked-phone" type="tel" id="modal_phone" placeholder="Ваш сотовый номер" data-phonemask="+7(___)___-__-__">
                     <a   class="btn" onclick="sendForm('modal')">Перезвоните мне</a>
-                    <label class="custom-checkbox"><span>Даю согласие на обработку моих персональных данных</span>
-                        <input name="personal" checked required type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
+                    <label class="custom-checkbox"><span>Даю согласие на обработку моих <a style="color: #3973c5;text-decoration: underline" href="{% url 'policy' %}">персональных данных</a></span>
+                    <input id="personal_check1" name="personal"  required type="checkbox">
+                    <span class="checkmark"></span>
+                </label>
                     <input style="display: none" name="agree" type="checkbox">
                 </div>
             </div>

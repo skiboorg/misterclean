@@ -56,7 +56,8 @@ def about(request):
         pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
         pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
     return render(request, 'pages/about.html', locals())
-
+def policy(request):
+    return render(request, 'pages/policy.html', locals())
 def services(request):
     servicesactive = 'active'
     try:

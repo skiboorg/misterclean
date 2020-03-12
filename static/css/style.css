@@ -1958,27 +1958,14 @@ select:focus {
   margin-bottom: 35px;
 }
 
-.map {
-  background: url(../img/map.png);
-  height: 600px;
-}
-
 .map-inner {
-  height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
+  position: relative;
 }
 
 .map-inner .shadow-box {
-  -ms-flex-preferred-size: 33.33%;
-  flex-basis: 33.33%;
+  top: -530px;
+  position: absolute;
+  max-width: 340px;
   -webkit-box-shadow: 0 0 54px 0 rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 54px 0 rgba(0, 0, 0, 0.2);
 }
