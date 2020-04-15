@@ -11,7 +11,7 @@ class BlogPost(models.Model):
     page_h1 = models.CharField('Тег H1', max_length=255, blank=False, null=True)
     page_title = models.CharField('Название страницы SEO', max_length=255, blank=False, null=True)
     page_description = models.CharField('Описание страницы SEO', max_length=255, blank=False, null=True)
-    page_keywords = models.TextField('Keywords SEO', blank=False, null=True)
+    page_keywords = models.TextField('Keywords SEO', blank=True, null=True)
     short_description = models.CharField('Краткое описание (100 символов)', max_length=100, blank=False)
     description = RichTextUploadingField('Статья', blank=False, null=True)
     views = models.IntegerField('Просмотров', default=0)

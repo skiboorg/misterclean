@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'callback',
     'comments',
     'ckeditor',
-    'pages'
+    'pages',
+    'blog'
 ]
 
 MIDDLEWARE = [

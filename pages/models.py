@@ -142,10 +142,10 @@ class SeoTag(models.Model):
     servicesTitle = models.CharField('Тег Title для страницы со всеми услугами', max_length=255, blank=True, null=True)
     servicesDescription = models.CharField('Тег Description для страницы со всеми услугам', max_length=255, blank=True, null=True)
     servicesKeywords = models.TextField('Тег Keywords для страницы со всеми услугам', blank=True, null=True)
-    # postsTitle = models.CharField('Тег Title для страницы со всеми статьями', max_length=255, blank=True, null=True)
-    # postsDescription = models.CharField('Тег Description для страницы со всеми статьями', max_length=255, blank=True,
-    #                                        null=True)
-    # postsKeywords = models.TextField('Тег Keywords для страницы со всеми статьями', blank=True, null=True)
+    postsTitle = models.CharField('Тег Title для страницы со всеми статьями', max_length=255, blank=True, null=True)
+    postsDescription = models.CharField('Тег Description для страницы со всеми статьями', max_length=255, blank=True,
+                                           null=True)
+    postsKeywords = models.TextField('Тег Keywords для страницы со всеми статьями', blank=True, null=True)
     aboutTitle = models.CharField('Тег Title для страницы о компании', max_length=255, blank=True, null=True)
     aboutDescription = models.CharField('Тег Description для страницы о компании', max_length=255, blank=True,
                                         null=True)

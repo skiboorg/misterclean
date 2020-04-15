@@ -1630,19 +1630,22 @@ select:focus {
   -moz-column-gap: 30px;
   column-gap: 30px;
   row-gap: 50px;
-  grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
 .blog-post-item {
   -webkit-box-shadow: 0 0 46px rgba(34, 36, 37, 0.12);
   box-shadow: 0 0 46px rgba(34, 36, 37, 0.12);
   border-radius: 10px;
+  padding: 20px;
+  text-align: center;
 }
 
 .blog-post-item img {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   margin-bottom: 30px;
+  width: 200px;
 }
 
 .blog-post-item h5 {
@@ -1673,10 +1676,10 @@ select:focus {
 }
 
 .blog-post-text p {
-  line-height: 30px;
   font-family: "Gotham Regular", sans-serif;
   font-size: 16px;
   color: #292929;
+  line-height: 21px;
 }
 
 .blog-post-image img {

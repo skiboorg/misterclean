@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
-# from blog.models import *
+from blog.models import *
 from .models import *
 from comments.models import *
 
@@ -22,25 +22,27 @@ def index(request):
         pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
     return render(request, 'pages/index.html', locals())
 
-# def allPosts(request):
-#     try:
-#         seotag = SeoTag.objects.first()
-#         pageTitle = seotag.postsTitle
-#         pageDescription = seotag.postsDescription
-#         pageKeywords = seotag.postsKeywords
-#     except:
-#         pageTitle = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
-#         pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
-#         pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
-#     allPost = BlogPost.objects.filter(is_active=True)
-#     return render(request, 'pages/posts.html', locals())
-#
-# def showPost(request,slug):
-#     post = get_object_or_404(BlogPost, name_slug=slug)
-#     pageTitle = post.page_title
-#     pageDescription = post.page_description
-#     pageKeywords = post.page_keywords
-#     return render(request, 'pages/post.html', locals())
+def allPosts(request):
+    postactive = 'active'
+    try:
+        seotag = SeoTag.objects.first()
+        pageTitle = seotag.postsTitle
+        pageDescription = seotag.postsDescription
+        pageKeywords = seotag.postsKeywords
+    except:
+        pageTitle = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+        pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+        pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+    allPost = BlogPost.objects.filter(is_active=True)
+    return render(request, 'pages/posts.html', locals())
+
+def showPost(request,slug):
+    postactive = 'active'
+    post = get_object_or_404(BlogPost, name_slug=slug)
+    pageTitle = post.page_title
+    pageDescription = post.page_description
+    pageKeywords = post.page_keywords
+    return render(request, 'pages/post.html', locals())
 
 def about(request):
     aboutactive = 'active'
