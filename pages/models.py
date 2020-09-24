@@ -31,6 +31,7 @@ class ServiceName(models.Model):
     pageText = RichTextUploadingField('Текст на страницу с услугой (отображается внизу страницы) ', blank=True, null=True)
     isAtHome = models.BooleanField('Отображать на главной?', default=False)
     isInCalc = models.BooleanField('Отображать в калькуляторе?', default=False)
+    show_calc = models.BooleanField('Отображать калькулятор на странице', default=True)
 
 
     def save(self, *args, **kwargs):

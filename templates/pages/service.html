@@ -27,7 +27,9 @@
             <div class="section-header">
                 <h1>{{ currentService.page_h1 }}</h1>
             </div>
+            {% if currentService.show_calc %}
             {% include 'pages/form.html' %}
+            {% endif %}
         </section>
         {% if currentService.serviceprice_set.all %}
             <section  class="service-prices">
