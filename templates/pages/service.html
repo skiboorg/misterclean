@@ -72,17 +72,12 @@
             </section><!--//service-features-->
         {% endif %}
         <section class="about">
-
-            <div class="about-wrapper">
-
+            <div style="background: url({{ currentService.get_about_bg }}) no-repeat 70% 0;" class="about-wrapper">
                 <div class="container about-inner">
-
                     <div style="width: 450px">
                           <h3>{{ currentService.name }}</h3>
                         {{ currentService.smallText | safe }}
                    </div>
-
-
                 </div>
             </div>
         </section>
@@ -105,12 +100,10 @@
                 <div class="container">
                     <h3 style="text-align: center;margin-bottom: 70px;">Наши видео</h3>
                     <div class="video-comments-wrapper">
-
                             <div class="video-comments-item">
                                 <div id="container" style="background: url(https://img.youtube.com/vi/jzEpEyslcu4/hqdefault.jpg) no-repeat center; box-shadow: none">
                                     <button  id="playme" onclick="revealVideo('video00','youtube')"></button>
                                 </div>
-
                                 <div id="video00" class="lightbox" onclick="hideVideo('video00','youtube')" >
                                     <div class="lightbox-container">
                                         <div class="lightbox-content">
@@ -124,8 +117,6 @@
                                     </div>
                                 </div>
                             </div><!-- // video-comments-item -->
-
-
                     </div>
                 </div>
             </section><!-- // video-comments -->
@@ -147,15 +138,10 @@
                 </div>
             </section>
         {% endif %}
-
-
         {% if allComments %}
             <section class="our-help not-visible-md">
             <div class="container ">
                 <h3>Наша работа и отзывы о ней</h3>
-
-
-
                 <div class="our-help-media-slider" id="our-help-media-slider">
                     {% for comment in allComments %}
                           <div class="slider-itemm">

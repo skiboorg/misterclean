@@ -17,6 +17,7 @@ class ServiceName(models.Model):
     name = models.CharField('Вид работы', max_length=255, blank=False, null=True)
     image = models.ImageField('Изображение для страницы со всеми услугами (555 x 225)', upload_to='services_img/', blank=True, null=True)
     image_small = models.ImageField('Изображение для главной превью (170 x 170)', upload_to='services_img/', blank=True, null=True)
+    image_inner = models.ImageField('Изображение для блока о нас', upload_to='services_img/', blank=True, null=True)
     name_lower = models.CharField(max_length=255, blank=True, null=True, db_index=True)
     name_slug = models.CharField(max_length=255, blank=True, null=True, unique=True, db_index=True)
     page_h1 = models.CharField('Тег H1', max_length=255, blank=False, null=True)
@@ -44,6 +45,12 @@ class ServiceName(models.Model):
             self.name_slug = slug + slugRandom
         self.name_lower = self.name.lower()
         super(ServiceName, self).save(*args, **kwargs)
+
+    def get_about_bg(self):
+        if self.image_inner:
+            return self.image_inner.url
+        else:
+            return '/static/img/bg2.png'
         
     def get_absolute_url(self):
         return '/service/{}/'.format(self.name_slug)
