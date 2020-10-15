@@ -2204,9 +2204,15 @@ select:focus {
 
 @media (max-width: 850px) {
   .about-wrapper {
-    background-position-x: 500px !important;
-
+    background: none !important;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
+  .about-inner p {
+    max-width: unset;
+  }
+
 
   .feature-wrapper{
     background-position-x: -463px
