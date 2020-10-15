@@ -2160,6 +2160,9 @@ select:focus {
 }
 
 @media (max-width: 1024px) {
+  .feature-wrapper{
+    background-position-x: -320px
+  }
   .map-inner .shadow-box {
     min-width: 320px;
   }
@@ -2200,6 +2203,10 @@ select:focus {
 }
 
 @media (max-width: 850px) {
+  .feature-wrapper{
+    background-position-x: -463px
+  }
+
   .our-help {
     display: none;
   }
@@ -2456,7 +2463,7 @@ select:focus {
   }
 
   .about-wrapper {
-    background: none;
+    background: none !important;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
