@@ -2205,7 +2205,7 @@ select:focus {
 @media (max-width: 850px) {
   .about-wrapper {
     background-position-x: 500px !important;
-  
+
   }
 
   .feature-wrapper{
