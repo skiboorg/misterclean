@@ -840,7 +840,10 @@ select:focus {
   -ms-flex-pack: justify;
   justify-content: space-between;
 }
-
+.header-nav__nav-wrapper li{
+  position: relative;
+  line-height: 30px;
+}
 .header-nav__nav-wrapper li a {
   font: 16px "MuseoSansCyrl-300", sans-serif;
   color: #1f1f1f;
@@ -2549,4 +2552,45 @@ select:focus {
   .lightbox-container {
     margin-top: 13%;
   }
+}
+
+.sub-menu{
+  position: absolute;
+  left: 0;
+  background: #ffffff;
+  width: 306px;
+  padding: 5px;
+  top: 35px;
+  z-index: 100;
+  opacity: 0;
+  transition: all 0.2s linear;
+  pointer-events: none;
+}
+
+
+.with-sub-menu:hover > .sub-menu{
+  top: 30px;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.sub-menu .shadow-box-inner{
+  padding: 20px;
+}
+
+.sub-menu li{
+  margin-bottom: 10px;
+}
+
+.sub-menu li:last-child{
+  margin-bottom: 0;
+}
+
+.sub-menu li a{
+  display:  block;
+  transition: all .2s linear;
+}
+
+.sub-menu li a:hover{
+  color: #18b9c2;
 }

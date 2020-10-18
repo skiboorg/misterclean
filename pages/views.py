@@ -58,8 +58,12 @@ def about(request):
         pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
         pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
     return render(request, 'pages/about.html', locals())
+
+
 def policy(request):
     return render(request, 'pages/policy.html', locals())
+
+
 def services(request):
     servicesactive = 'active'
     try:
@@ -91,8 +95,7 @@ def contacts(request):
     return render(request, 'pages/contacts.html', locals())
 
 
-def service(request,slug):
-
+def service(request, slug):
     servicesactive = 'active'
     currentService = get_object_or_404(ServiceName, name_slug=slug)
     allServices = ServiceName.objects.all().order_by('order')

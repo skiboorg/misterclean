@@ -75,7 +75,12 @@
             <div style="background: url({{ currentService.get_about_bg }}) no-repeat 70% 0;" class="about-wrapper">
                 <div class="container about-inner">
                     <div style="width: 450px">
-                          <h3>{{ currentService.name }}</h3>
+                        {% if currentService.about_title%}
+                         <h3>{{ currentService.about_title }}</h3>
+                            {% else %}
+                             <h3>{{ currentService.name }}</h3>
+                        {% endif %}
+
                         {{ currentService.smallText | safe }}
                    </div>
                 </div>

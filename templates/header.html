@@ -8,7 +8,15 @@
         <nav class="header-nav">
             <ul class="header-nav__nav-wrapper">
                 <li><a class="{{ homeactive }}" href="{% url 'index' %}">Главная</a></li>
-                <li><a class="{{ servicesactive }}" href="{% url 'services' %}">Услуги</a></li>
+               <li class="with-sub-menu"><a class="{{ servicesactive }}" href="{% url 'services' %}">Услуги</a>
+                <div class="sub-menu shadow-box">
+                    <ul class="shadow-box-inner">
+                        {% for service in allServices %}
+                        <li><a href="{% url 'service' service.name_slug %}">{{ service.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                </li>
                 <li><a class="{{ contactsactive }}" href="{% url 'contacts' %}">Контакты</a></li>
                  <li><a class="{{ postactive}}" href="{% url 'allposts' %}">Статьи</a></li>
                 <li><a class="{{ aboutactive }}" href="{% url 'about' %}">О нас</a></li>

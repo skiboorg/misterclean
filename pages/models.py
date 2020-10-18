@@ -18,6 +18,7 @@ class ServiceName(models.Model):
     image = models.ImageField('Изображение для страницы со всеми услугами (555 x 225)', upload_to='services_img/', blank=True, null=True)
     image_small = models.ImageField('Изображение для главной превью (170 x 170)', upload_to='services_img/', blank=True, null=True)
     image_inner = models.ImageField('Изображение для блока о нас', upload_to='services_img/', blank=True, null=True)
+    about_title = models.CharField('Заголовок для блока о нас', max_length=255, blank=True, null=True)
     name_lower = models.CharField(max_length=255, blank=True, null=True, db_index=True)
     name_slug = models.CharField(max_length=255, blank=True, null=True, unique=True, db_index=True)
     page_h1 = models.CharField('Тег H1', max_length=255, blank=False, null=True)
