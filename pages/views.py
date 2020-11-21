@@ -130,4 +130,4 @@ def customhandler404(request, exception, template_name='404.html'):
     pageTitle = '404 - Такой страницы не существует'
 
 
-    return render(request, 'pages/404.html', None,None,status=404)
+    return render(request, 'pages/404.html', locals(),None,status=404)
