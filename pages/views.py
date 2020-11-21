@@ -11,7 +11,7 @@ def index(request):
     servicesInCalc = allServices.filter(isInCalc=True)
     allComments = Comment.objects.all()
     num = range(25)
-    canonical_url = request.get_full_path()
+    canonical_url = ''
 
     try:
         seotag = SeoTag.objects.first()
@@ -26,7 +26,7 @@ def index(request):
 
 def allPosts(request):
     postactive = 'active'
-    canonical_url = request.get_full_path()
+    canonical_url = 'posts/'
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.postsTitle
@@ -46,10 +46,11 @@ def showPost(request,slug):
     pageTitle = post.page_title
     pageDescription = post.page_description
     pageKeywords = post.page_keywords
+    canonical_url = f'posts/{post.name_slug}/'
     return render(request, 'pages/post.html', locals())
 
 def about(request):
-    canonical_url = request.get_full_path()
+    canonical_url = 'about/'
     aboutactive = 'active'
     allServices = ServiceName.objects.all().order_by('order')
     servicesInCalc = allServices.filter(isInCalc=True)
@@ -70,7 +71,7 @@ def policy(request):
 
 
 def services(request):
-    canonical_url = request.get_full_path()
+    canonical_url = 'service/'
     servicesactive = 'active'
     try:
         seotag = SeoTag.objects.first()
@@ -87,8 +88,9 @@ def services(request):
 
 
 def contacts(request):
-    canonical_url = request.get_full_path()
+    canonical_url = 'contacts/'
     contactsactive = 'active'
+    allServices = ServiceName.objects.all().order_by('order')
 
     try:
         seotag = SeoTag.objects.first()
@@ -103,7 +105,7 @@ def contacts(request):
 
 
 def service(request, slug):
-    canonical_url = request.get_full_path()
+
     servicesactive = 'active'
     currentService = get_object_or_404(ServiceName, name_slug=slug)
     allServices = ServiceName.objects.all().order_by('order')
@@ -114,6 +116,7 @@ def service(request, slug):
     pageKeywords = currentService.page_keywords
     allComments = Comment.objects.filter(service=currentService)
     allVideoComments = VideoComment.objects.filter(service=currentService)
+    canonical_url = f'service/{currentService.name_slug}/'
     return render(request, 'pages/service.html', locals())
 
 
