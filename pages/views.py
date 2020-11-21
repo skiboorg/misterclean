@@ -123,6 +123,8 @@ def robots(request):
 
 
 def customhandler404(request, exception, template_name='404.html'):
+    allServices = ServiceName.objects.all().order_by('order')
+    is404 = True
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.servicesTitle
