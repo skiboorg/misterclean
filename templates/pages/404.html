@@ -2,15 +2,19 @@
 {% load static %}
 
 {% block content %}
-<section class="notFound">
+      {% include 'header.html' %}
+    <div class="container">
+    <section class="notFound">
 		<div class="wrapper">
 			<div class="notFound-img">
 				<img src="{% static 'img/notFound-img.svg' %}" alt="">
 			</div>
 			<h1 class="notFound-title">Такой страницы не существует</h1>
-			<a href="/" class="main-btn">Перейти на главную</a>
+			<a href="/" class="btn">Перейти на главную</a>
 		</div>
 	</section>
+    </div>
+
 {% endblock %}
 
 {% block js %}
