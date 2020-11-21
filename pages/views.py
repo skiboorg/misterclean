@@ -11,6 +11,8 @@ def index(request):
     servicesInCalc = allServices.filter(isInCalc=True)
     allComments = Comment.objects.all()
     num = range(25)
+    canonical_url = request.get_full_path()
+
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.indexTitle
@@ -24,6 +26,7 @@ def index(request):
 
 def allPosts(request):
     postactive = 'active'
+    canonical_url = request.get_full_path()
     try:
         seotag = SeoTag.objects.first()
         pageTitle = seotag.postsTitle
@@ -37,6 +40,7 @@ def allPosts(request):
     return render(request, 'pages/posts.html', locals())
 
 def showPost(request,slug):
+    canonical_url = request.get_full_path()
     postactive = 'active'
     post = get_object_or_404(BlogPost, name_slug=slug)
     pageTitle = post.page_title
@@ -45,6 +49,7 @@ def showPost(request,slug):
     return render(request, 'pages/post.html', locals())
 
 def about(request):
+    canonical_url = request.get_full_path()
     aboutactive = 'active'
     allServices = ServiceName.objects.all().order_by('order')
     servicesInCalc = allServices.filter(isInCalc=True)
@@ -65,6 +70,7 @@ def policy(request):
 
 
 def services(request):
+    canonical_url = request.get_full_path()
     servicesactive = 'active'
     try:
         seotag = SeoTag.objects.first()
@@ -81,6 +87,7 @@ def services(request):
 
 
 def contacts(request):
+    canonical_url = request.get_full_path()
     contactsactive = 'active'
 
     try:
@@ -96,6 +103,7 @@ def contacts(request):
 
 
 def service(request, slug):
+    canonical_url = request.get_full_path()
     servicesactive = 'active'
     currentService = get_object_or_404(ServiceName, name_slug=slug)
     allServices = ServiceName.objects.all().order_by('order')
@@ -112,3 +120,16 @@ def service(request, slug):
 def robots(request):
     robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: https://www.misterclean.ru/\nSitemap: https://www.misterclean.ru/sitemap.xml"
     return HttpResponse(robotsTxt, content_type="text/plain")
+
+
+def customhandler404(request, exception, template_name='404.html'):
+    try:
+        seotag = SeoTag.objects.first()
+        pageTitle = seotag.servicesTitle
+        pageDescription = seotag.servicesDescription
+        pageKeywords = seotag.servicesKeywords
+    except:
+        pageTitle = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+        pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+        pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+    return render(request, 'pages/404.html', None,None,status=404)

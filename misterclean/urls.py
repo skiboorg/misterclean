@@ -3,6 +3,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from pages.sitemaps import *
+from pages.views import customhandler404
 from django.contrib.sitemaps.views import sitemap
 sitemaps = {
     'static': StaticViewSitemap,
@@ -21,3 +22,5 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = customhandler404
