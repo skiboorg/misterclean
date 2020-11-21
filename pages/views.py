@@ -125,13 +125,9 @@ def robots(request):
 def customhandler404(request, exception, template_name='404.html'):
     allServices = ServiceName.objects.all().order_by('order')
     is404 = True
-    try:
-        seotag = SeoTag.objects.first()
-        pageTitle = seotag.servicesTitle
-        pageDescription = seotag.servicesDescription
-        pageKeywords = seotag.servicesKeywords
-    except:
-        pageTitle = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
-        pageDescription = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
-        pageKeywords = 'НЕ ЗАПОЛНЕНА ТАБЛИЦА СЕО ТЕГИ'
+
+
+    pageTitle = '404 - Такой страницы не существует'
+
+
     return render(request, 'pages/404.html', None,None,status=404)
