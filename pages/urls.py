@@ -5,8 +5,8 @@ from django.views.generic.base import RedirectView
 urlpatterns = [
 
    path('', views.index, name='index'),
-   path('index.html', RedirectView.as_view(url='/', permanent=False), name='index1'),
-   path('index.php', RedirectView.as_view(url='/', permanent=False), name='index2'),
+   path('index.html', RedirectView.as_view(url='/', permanent=True), name='index1'),
+   path('index.php', RedirectView.as_view(url='/', permanent=True), name='index2'),
    path('posts/', views.allPosts, name='allposts'),
    path('posts/<slug>/', views.showPost, name='showpost'),
    path('about/', views.about, name='about'),
