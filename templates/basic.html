@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <!-- SKIBORG WAS HERE -->
-<html lang="ru">
+<html lang="ru" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
@@ -9,10 +9,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Pragma" content="no-cache"/>
     <meta http-equiv="cache-control" content="no-store, no-cache, must-revalidate"/>
+
+<meta property="og:title" content="{{ pageTitle }}" />
+
+<meta property="og:url" content="https://{{ request.META.HTTP_HOST }}/{{ canonical_url }}" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content=" Профессиональный клининг в Челябинске, уборка квартир, чистка мебели " />
+{% if is_service_page %}
+<meta property="og:type" content="article" />
+<meta property="article:section" content="{{ current_Service }}" />
+    <meta property="og:description" content="{{ service_Description }}" />
+    {% else %}
+  <meta property="og:description" content="{{ pageDescription }}" />
+{% endif %}
     <title>{% block title %}   {% endblock %} </title>
+
     <meta name="keywords" content="{% block keywords %} keywords {% endblock %}">
     <meta name="description" content="{% block description %} description {% endblock %}"/>
-<link rel="canonical" href="{{ request.META.HTTP_HOST }}{{ canonical_url }}" />
+<link rel="canonical" href="https://{{ request.META.HTTP_HOST }}/{{ canonical_url }}" />
  <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon">
     {% if seotag.yandexTAG %}
         {{ seotag.yandexTAG |safe }}

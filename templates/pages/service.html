@@ -23,6 +23,15 @@
 {% block content %}
     {% include 'header.html' %}
     <div class="main">
+     <div class="container">
+        <div class="breadcrumbs">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li ><a href="{% url 'services' %}">Наши услуги</a></li>
+                <li class="active">{{ currentService.name }}</li>
+            </ul>
+        </div>
+    </div><!--// breadcrumbs-->
         <section style="max-width: 800px" class="container calculator-form">
             <div class="section-header">
                 <h1>{{ currentService.page_h1 }}</h1>

@@ -105,14 +105,16 @@ def contacts(request):
 
 
 def service(request, slug):
-
+    is_service_page = True
     servicesactive = 'active'
     currentService = get_object_or_404(ServiceName, name_slug=slug)
+    current_Service = currentService.name
     allServices = ServiceName.objects.all().order_by('order')
     servicesInCalc = allServices.filter(isInCalc=True)
     all_steps = ServiceSteps.objects.filter(service=currentService)
     pageTitle = currentService.page_title
     pageDescription = currentService.page_description
+    service_Description = f'В нашей компании вы можете заказать услуги по {current_Service.lower()} квартир и офисов по низким ценам. Быстрая и качественная {current_Service.lower()} помещений. ☎️ Звоните: +7 (351) 777-20-03.'
     pageKeywords = currentService.page_keywords
     allComments = Comment.objects.filter(service=currentService)
     allVideoComments = VideoComment.objects.filter(service=currentService)
@@ -121,7 +123,23 @@ def service(request, slug):
 
 
 def robots(request):
-    robotsTxt = f"User-agent: *\nDisallow: /admin/\nHost: https://www.misterclean.ru/\nSitemap: https://www.misterclean.ru/sitemap.xml"
+    robotsTxt = """User-agent: *
+Disallow:/admin/
+Disallow:/media/
+Disallow:/static/
+Disallow:/mc/
+Disallow:/*?*id=
+
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.png
+Allow: /*.gif
+Allow: /*.css
+Allow: /*.js
+Allow: /*.webp
+
+Sitemap: https://www.misterclean.ru/sitemap.xml 
+    """
     return HttpResponse(robotsTxt, content_type="text/plain")
 
 
